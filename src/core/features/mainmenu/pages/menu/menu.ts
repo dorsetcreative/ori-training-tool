@@ -125,6 +125,7 @@ export class CoreMainMenuPage implements OnInit, OnDestroy {
             }
 
             this.tabs = newTabs;
+            console.log("tabs +++++++++++++++++++++",this.tabs)
 
             // Sort them by priority so new handlers are in the right position.
             this.tabs.sort((a, b) => (b.priority || 0) - (a.priority || 0));
