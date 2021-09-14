@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "271885665962",
+    "firebase_url": "https://test-moodlle-notification.firebaseio.com",
+    "project_id": "test-moodlle-notification",
+    "storage_bucket": "test-moodlle-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271885665962:android:804b4ae87d0adbd916f2d3",
+        "android_client_info": {
+          "package_name": "uk.co.icshealth.myjourney"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "271885665962-uc3ktl7o87jn5j3hjqohmsb5aek03e1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqF4BkpBPvKG3vtzP4YLnK0lJzsuevG6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "271885665962-uc3ktl7o87jn5j3hjqohmsb5aek03e1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
