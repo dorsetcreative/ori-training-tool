@@ -307,4 +307,6 @@ class CoreMainMenuRoleTab extends CoreAriaRoleTab<CoreMainMenuPage> {
         return this.componentInstance.tabsPlacement == 'bottom';
     }
 
+   
+
 }

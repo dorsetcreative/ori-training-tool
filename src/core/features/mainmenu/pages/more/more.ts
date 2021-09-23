@@ -145,6 +145,15 @@ export class CoreMainMenuMorePage implements OnInit, OnDestroy {
         CoreNavigator.navigateToSitePath(handler.page, { params });
     }
 
+               /**
+                * Open settings.
+                */
+                openSettings(): void {
+                    CoreNavigator.navigateToSitePath('settings/general');
+                }
+
+
+
     /**
      * Open an embedded custom item.
      *
@@ -215,6 +224,8 @@ export class CoreMainMenuMorePage implements OnInit, OnDestroy {
     logout(): void {
         this.loggedOut = true;
         CoreSites.logout();
+        CoreNavigator.navigate('/login', { reset: true });
+
     }
 
 }

@@ -1,0 +1,23 @@
+h1 {
+  text-transform: unset;
+  font-weight: 600;
+  padding-left: 15px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  margin: 2rem 0;
+  padding: 1rem 1rem 0;
+  ion-label {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    color: var(--light-black-text);
+  }
+  img {
+    margin-bottom: 2rem;
+  }
+}

@@ -159,10 +159,10 @@
                     </div>
                 </div>
 
+     
+                <!-- [href]="siteInfo.siteurl" -->
 
-            
-
-                    <div class="he-table-row" [href]="siteInfo.siteurl" core-link autoLogin="yes"
+                    <div class="he-table-row" href="https://microsites.bournemouth.ac.uk/ori/" core-link autoLogin="yes"
                     [attr.aria-label]="'core.mainmenu.website' | translate" detail="true">
                         <div class="he-table-icon" (click)="openLink('https://microsites.bournemouth.ac.uk/ori/')">
                             <img src="/assets/more/thr-icon-light.svg" width="27"/>
@@ -217,6 +217,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- <p class="he-more-appversion">App version v{{ versionNumber }}</p> -->
     </core-loading>
 </ion-content>
