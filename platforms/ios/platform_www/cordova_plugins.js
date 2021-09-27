@@ -359,6 +359,22 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-globalization.GlobalizationError",
+      "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
+      "pluginId": "cordova-plugin-globalization",
+      "clobbers": [
+        "window.GlobalizationError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-globalization.globalization",
+      "file": "plugins/cordova-plugin-globalization/www/globalization.js",
+      "pluginId": "cordova-plugin-globalization",
+      "clobbers": [
+        "navigator.globalization"
+      ]
+    },
+    {
       "id": "cordova-plugin-ionic-webview.IonicWebView",
       "file": "plugins/cordova-plugin-ionic-webview/src/www/util.js",
       "pluginId": "cordova-plugin-ionic-webview",
@@ -518,36 +534,22 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "merges": [
         "cordova.plugins.diagnostic.motion"
       ]
-    },
-    {
-      "id": "cordova-plugin-globalization.GlobalizationError",
-      "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
-      "pluginId": "cordova-plugin-globalization",
-      "clobbers": [
-        "window.GlobalizationError"
-      ]
-    },
-    {
-      "id": "cordova-plugin-globalization.globalization",
-      "file": "plugins/cordova-plugin-globalization/www/globalization.js",
-      "pluginId": "cordova-plugin-globalization",
-      "clobbers": [
-        "navigator.globalization"
-      ]
     }
   ];
   module.exports.metadata = {
+    "cordova-android-support-gradle-release": "3.0.1",
     "cordova-clipboard": "1.3.0",
+    "cordova-plugin-add-swift-support": "2.0.2",
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-advanced-http": "3.1.0",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-camera": "5.0.1",
-    "cordova-plugin-add-swift-support": "2.0.2",
     "cordova-plugin-chooser": "1.3.1",
     "cordova-plugin-customurlscheme": "5.0.2",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-file-opener2": "3.0.5",
     "cordova-plugin-geolocation": "4.1.0",
+    "cordova-plugin-globalization": "1.11.0",
     "cordova-plugin-ionic-webview": "5.0.0",
     "cordova-plugin-media": "5.0.3",
     "cordova-plugin-network-information": "2.0.2",
@@ -556,9 +558,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-whitelist": "1.3.4",
     "cordova-plugin-zip": "3.1.0",
     "cordova-sqlite-storage": "6.0.0",
-    "nl.kingsquare.cordova.background-audio": "1.0.1",
-    "cordova-android-support-gradle-release": "3.0.1",
     "cordova.plugins.diagnostic": "5.0.2",
-    "cordova-plugin-globalization": "1.11.0"
+    "nl.kingsquare.cordova.background-audio": "1.0.1"
   };
 });

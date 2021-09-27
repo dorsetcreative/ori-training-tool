@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-about-about-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/core/features/mainmenu/pages/about/about.page.html":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/core/features/mainmenu/pages/about/about.page.html ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header class=\"ion-no-border\">\n    <ion-toolbar mode=\"ios\">\n        <!-- <ion-buttons slot=\"start\">\n            <ion-back-button [text]=\"'core.back' | translate\"></ion-back-button>\n        </ion-buttons> -->\n        <ion-title>\n            <img src=\"/assets/img/logo-header-light.svg\" role=\"presentation\">\n\n        </ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <!-- <h1>About ORIBU</h1> -->\n    <h1>About ORI</h1>\n\n\n    <div class=\"about-container\">\n        <ion-label>\n            The Orthopaedic Research Institute (ORI) of Bournemouth University works across Dorset and on a National scale to improve the outcomes of patients with osteoarthritis and related diseases. We work with hospitals, industry partners and academia to produce high quality research and educational outputs that have a proven impact for patients, clinicians and society.\n        </ion-label>\n        <ion-label>\n            A particular area of expertise for ORI is osteoarthritis – a condition which clinicians in Dorset are frequently faced with, owing to the high numbers of older people living in the region. By producing high quality research and teaching in this area, ORI has the potential to make a real impact on local and national practice.\n        </ion-label>\n        <ion-label>s\n            We are driven by the needs of our patients, clinical colleagues and wider society to produce high quality academic and patient outcomes across the fields of orthopaedic surgery, related diseases, treatments, technologies and devices. Our research informs our education programmes, that are designed to disseminate evidence-based care for osteoarthritis to patients, students and clinicians.\n        </ion-label>\n        <!-- <ion-label>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n            A beatae eveniet ex incidunt inventore itaque laudantium mollitia nihil praesentium,\n            quasi quibusdam sint veritatis voluptatibus? Blanditiis laudantium nesciunt nobis tempore velit.\n        </ion-label>\n        <ion-label>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n            A beatae eveniet ex incidunt inventore itaque laudantium mollitia nihil praesentium,\n            quasi quibusdam sint veritatis voluptatibus? Blanditiis laudantium nesciunt nobis tempore velit.\n        </ion-label>\n        <ion-label>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n            A beatae eveniet ex incidunt inventore itaque laudantium mollitia nihil praesentium,\n            quasi quibusdam sint veritatis voluptatibus? Blanditiis laudantium nesciunt nobis tempore velit.\n        </ion-label>\n        <img src=\"/assets/img/About.jpg\" alt=\"About\">\n        <ion-label>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n            A beatae eveniet ex incidunt inventore itaque laudantium mollitia nihil praesentium,\n            quasi quibusdam sint veritatis voluptatibus? Blanditiis laudantium nesciunt nobis tempore velit.\n        </ion-label>\n        <ion-label>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n            A beatae eveniet ex incidunt inventore itaque laudantium mollitia nihil praesentium,\n            quasi quibusdam sint veritatis voluptatibus? Blanditiis laudantium nesciunt nobis tempore velit.\n        </ion-label>\n        <ion-label>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n            A beatae eveniet ex incidunt inventore itaque laudantium mollitia nihil praesentium,\n            quasi quibusdam sint veritatis voluptatibus? Blanditiis laudantium nesciunt nobis tempore velit.\n        </ion-label>\n        <ion-label>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n            A beatae eveniet ex incidunt inventore itaque laudantium mollitia nihil praesentium,\n            quasi quibusdam sint veritatis voluptatibus? Blanditiis laudantium nesciunt nobis tempore velit.\n        </ion-label>\n        <ion-label>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n            A beatae eveniet ex incidunt inventore itaque laudantium mollitia nihil praesentium,\n            quasi quibusdam sint veritatis voluptatibus? Blanditiis laudantium nesciunt nobis tempore velit.\n        </ion-label> -->\n    </div>\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/core/features/settings/pages/about/about.html":
 /*!*************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/core/features/settings/pages/about/about.html ***!
@@ -23,6 +36,94 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-back-button [text]=\"'core.back' | translate\"></ion-back-button>\n        </ion-buttons>\n        <h1 *ngIf=\"title\">{{ title }}</h1>\n    </ion-toolbar>\n</ion-header>\n<ion-content>\n    <ion-refresher slot=\"fixed\" [disabled]=\"!userLoaded\" (ionRefresh)=\"refreshUser($event.target)\">\n        <ion-refresher-content pullingText=\"{{ 'core.pulltorefresh' | translate }}\"></ion-refresher-content>\n    </ion-refresher>\n    <core-loading [hideUntil]=\"userLoaded\">\n        <ion-list *ngIf=\"user\">\n            <ion-item-group *ngIf=\"hasContact\">\n                <ion-item-divider><ion-label><h2>{{ 'core.user.contact' | translate}}</h2></ion-label></ion-item-divider>\n                <ion-item class=\"ion-text-wrap\" *ngIf=\"user.email\">\n                    <ion-label>\n                        <h2>{{ 'core.user.email' | translate }}</h2>\n                        <p><a class=\"core-anchor\" href=\"mailto:{{user.email}}\" core-link auto-login=\"no\">\n                            {{ user.email }}\n                        </a></p>\n                    </ion-label>\n                </ion-item>\n                <ion-item class=\"ion-text-wrap\" *ngIf=\"user.phone1\">\n                    <ion-label>\n                        <h2>{{ 'core.user.phone1' | translate}}</h2>\n                        <p><a class=\"core-anchor\" href=\"tel:{{user.phone1}}\" core-link auto-login=\"no\">\n                            {{ user.phone1 }}\n                        </a></p>\n                    </ion-label>\n                </ion-item>\n                <ion-item class=\"ion-text-wrap\" *ngIf=\"user.phone2\">\n                    <ion-label>\n                        <h2>{{ 'core.user.phone2' | translate}}</h2>\n                        <p><a class=\"core-anchor\" href=\"tel:{{user.phone2}}\" core-link auto-login=\"no\">\n                            {{ user.phone2 }}\n                        </a></p>\n                    </ion-label>\n                </ion-item>\n                <ion-item class=\"ion-text-wrap\" *ngIf=\"formattedAddress\">\n                    <ion-label>\n                        <h2>{{ 'core.user.address' | translate}}</h2>\n                        <p><a class=\"core-anchor\" [href]=\"encodedAddress\" core-link auto-login=\"no\">\n                            {{ formattedAddress }}\n                        </a></p>\n                    </ion-label>\n                </ion-item>\n                <ion-item class=\"ion-text-wrap\" *ngIf=\"user.city && !formattedAddress\">\n                    <ion-label>\n                        <h2>{{ 'core.user.city' | translate}}</h2>\n                        <p>{{ user.city }}</p>\n                    </ion-label>\n                </ion-item>\n                <ion-item class=\"ion-text-wrap\" *ngIf=\"user.country && !formattedAddress\">\n                    <ion-label>\n                        <h2>{{ 'core.user.country' | translate}}</h2>\n                        <p>{{ user.country }}</p>\n                    </ion-label>\n                </ion-item>\n            </ion-item-group>\n            <ion-item-group *ngIf=\"hasDetails\">\n                <ion-item-divider><ion-label><h2>{{ 'core.userdetails' | translate}}</h2></ion-label></ion-item-divider>\n                <ion-item class=\"ion-text-wrap\" *ngIf=\"user.url\">\n                    <ion-label>\n                        <h2>{{ 'core.user.webpage' | translate}}</h2>\n                        <p><a class=\"core-anchor\" href=\"{{user.url}}\" core-link>\n                            {{ user.url }}\n                        </a></p>\n                    </ion-label>\n                </ion-item>\n                <ion-item class=\"ion-text-wrap\" *ngIf=\"user.interests\">\n                    <ion-label>\n                        <h2>{{ 'core.user.interests' | translate}}</h2>\n                        <p>{{ user.interests }}</p>\n                    </ion-label>\n                </ion-item>\n                <core-user-profile-field *ngFor=\"let field of user.customfields\" [field]=\"field\" contextLevel=\"course\"\n                    [contextInstanceId]=\"courseId\" [courseId]=\"courseId\">\n                </core-user-profile-field>\n            </ion-item-group>\n            <ion-item-group *ngIf=\"user.description\">\n                <ion-item-divider><ion-label><h2>{{ 'core.user.description' | translate}}</h2></ion-label></ion-item-divider>\n                <ion-item class=\"ion-text-wrap\">\n                    <ion-label>\n                        <p><core-format-text [text]=\"user.description\" contextLevel=\"user\" [contextInstanceId]=\"user.id\">\n                        </core-format-text></p>\n                    </ion-label>\n                </ion-item>\n            </ion-item-group>\n        </ion-list>\n\n        <core-empty-box *ngIf=\"!user || (!hasContact && !hasDetails && !user.description)\" icon=\"fas-user\"\n            [message]=\" 'core.user.detailsnotavailable' | translate\">\n        </core-empty-box>\n    </core-loading>\n</ion-content>\n");
+
+/***/ }),
+
+/***/ "./src/core/features/mainmenu/pages/about/about.module.ts":
+/*!****************************************************************!*\
+  !*** ./src/core/features/mainmenu/pages/about/about.module.ts ***!
+  \****************************************************************/
+/*! exports provided: AboutPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutPageModule", function() { return AboutPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _about_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./about.page */ "./src/core/features/mainmenu/pages/about/about.page.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+
+
+
+
+
+
+let AboutPageModule = class AboutPageModule {
+};
+AboutPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forChild([{ path: '', component: _about_page__WEBPACK_IMPORTED_MODULE_5__["AboutPage"] }])
+        ],
+        declarations: [_about_page__WEBPACK_IMPORTED_MODULE_5__["AboutPage"]]
+    })
+], AboutPageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/core/features/mainmenu/pages/about/about.page.scss":
+/*!****************************************************************!*\
+  !*** ./src/core/features/mainmenu/pages/about/about.page.scss ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("h1 {\n  text-transform: unset;\n  font-weight: 600;\n  padding-left: 15px;\n}\n\n.about-container {\n  display: flex;\n  flex-direction: column;\n  background: var(--background);\n  margin: 2rem 0;\n  padding: 1rem 1rem 0;\n}\n\n.about-container ion-label {\n  font-size: 1.2rem;\n  font-weight: 400;\n  line-height: 1.4;\n  margin-bottom: 2rem;\n  color: var(--light-black-text);\n}\n\n.about-container img {\n  margin-bottom: 2rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9jb3JlL2ZlYXR1cmVzL21haW5tZW51L3BhZ2VzL2Fib3V0L2Fib3V0LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLHNCQUFBO0VBQ0EsNkJBQUE7RUFDQSxjQUFBO0VBQ0Esb0JBQUE7QUFDRjs7QUFBRTtFQUNFLGlCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtFQUNBLG1CQUFBO0VBQ0EsOEJBQUE7QUFFSjs7QUFBRTtFQUNFLG1CQUFBO0FBRUoiLCJmaWxlIjoic3JjL2NvcmUvZmVhdHVyZXMvbWFpbm1lbnUvcGFnZXMvYWJvdXQvYWJvdXQucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaDEge1xuICB0ZXh0LXRyYW5zZm9ybTogdW5zZXQ7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIHBhZGRpbmctbGVmdDogMTVweDtcbn1cblxuLmFib3V0LWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGJhY2tncm91bmQ6IHZhcigtLWJhY2tncm91bmQpO1xuICBtYXJnaW46IDJyZW0gMDtcbiAgcGFkZGluZzogMXJlbSAxcmVtIDA7XG4gIGlvbi1sYWJlbCB7XG4gICAgZm9udC1zaXplOiAxLjJyZW07XG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgICBsaW5lLWhlaWdodDogMS40O1xuICAgIG1hcmdpbi1ib3R0b206IDJyZW07XG4gICAgY29sb3I6IHZhcigtLWxpZ2h0LWJsYWNrLXRleHQpO1xuICB9XG4gIGltZyB7XG4gICAgbWFyZ2luLWJvdHRvbTogMnJlbTtcbiAgfVxufVxuIl19 */");
+
+/***/ }),
+
+/***/ "./src/core/features/mainmenu/pages/about/about.page.ts":
+/*!**************************************************************!*\
+  !*** ./src/core/features/mainmenu/pages/about/about.page.ts ***!
+  \**************************************************************/
+/*! exports provided: AboutPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutPage", function() { return AboutPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let AboutPage = class AboutPage {
+    constructor() {
+    }
+    ngOnInit() {
+    }
+};
+AboutPage.ctorParameters = () => [];
+AboutPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-about',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./about.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/core/features/mainmenu/pages/about/about.page.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./about.page.scss */ "./src/core/features/mainmenu/pages/about/about.page.scss")).default]
+    })
+], AboutPage);
+
+
 
 /***/ }),
 

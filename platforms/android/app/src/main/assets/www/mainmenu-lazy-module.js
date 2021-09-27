@@ -61,6 +61,10 @@ function buildRoutes(injector) {
                     path: _services_mainmenu__WEBPACK_IMPORTED_MODULE_8__["CoreMainMenuProvider"].MORE_PAGE_NAME,
                     loadChildren: () => __webpack_require__.e(/*! import() | pages-more-more-module */ "pages-more-more-module").then(__webpack_require__.bind(null, /*! ./pages/more/more.module */ "./src/core/features/mainmenu/pages/more/more.module.ts")).then(m => m.CoreMainMenuMorePageModule),
                 },
+                {
+                    path: 'about',
+                    loadChildren: () => __webpack_require__.e(/*! import() | pages-about-about-module */ "pages-about-about-module").then(__webpack_require__.bind(null, /*! ./pages/about/about.module */ "./src/core/features/mainmenu/pages/about/about.module.ts")).then(m => m.AboutPageModule)
+                },
                 ...routes.children,
             ],
         },

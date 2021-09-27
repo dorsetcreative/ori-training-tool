@@ -439,7 +439,7 @@ module.exports = content.locals || {};
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/mac/Desktop/Rajat/moodleapp/src/theme/theme.scss */"./src/theme/theme.scss");
+module.exports = __webpack_require__(/*! /Users/mac/Desktop/Rajat/ori-training-tool/src/theme/theme.scss */"./src/theme/theme.scss");
 
 
 /***/ })

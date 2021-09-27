@@ -113,7 +113,7 @@ const routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'sites',
+        redirectTo: 'credentials',
     },
     {
         path: 'site',
