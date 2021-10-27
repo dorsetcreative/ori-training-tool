@@ -13,13 +13,13 @@
     <core-loading [hideUntil]="feedbackLoaded">
         <ng-container *ngIf="items && items.length">
             <ion-list class="ion-no-margin">
-                <ion-item class="ion-text-wrap">
+                <!-- <ion-item class="ion-text-wrap">
                     <ion-label>
                         <h2>{{ 'addon.mod_feedback.mode' | translate }}</h2>
                         <p *ngIf="access!.isanonymous">{{ 'addon.mod_feedback.anonymous' | translate }}</p>
                         <p *ngIf="!access!.isanonymous">{{ 'addon.mod_feedback.non_anonymous' | translate }}</p>
                     </ion-label>
-                </ion-item>
+                </ion-item> -->
                 <ng-container *ngFor="let item of items">
                     <core-spacer *ngIf="item.typ == 'pagebreak'"></core-spacer>
                     <ng-container *ngIf="item.typ != 'pagebreak'">
