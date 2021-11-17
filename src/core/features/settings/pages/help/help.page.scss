@@ -30,3 +30,18 @@ ion-content {
     margin-left: 25px;
   }
 }
+
+.faq-container {
+  .question {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .answer {
+    font-size: 1rem;
+    line-height: 1.4;
+    a {
+      text-decoration: underline;
+    }
+  }
+}
