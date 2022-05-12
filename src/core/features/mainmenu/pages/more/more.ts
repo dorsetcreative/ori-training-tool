@@ -145,6 +145,15 @@ export class CoreMainMenuMorePage implements OnInit, OnDestroy {
         CoreNavigator.navigateToSitePath(handler.page, { params });
     }
 
+               /**
+                * Open settings.
+                */
+                openSettings(): void {
+                    CoreNavigator.navigateToSitePath('settings/general');
+                }
+
+
+
     /**
      * Open an embedded custom item.
      *
@@ -162,11 +171,20 @@ export class CoreMainMenuMorePage implements OnInit, OnDestroy {
     }
 
     /**
-     * Open settings.
+     * Open Help.
      */
-    openSettings(): void {
-        CoreNavigator.navigateToSitePath('settings');
+    openHelp(): void {
+        CoreNavigator.navigateToSitePath('settings/help');
     }
+
+
+    /**
+     * Open Term.
+     */
+     openTerm(): void {
+        CoreNavigator.navigateToSitePath('settings/term');
+    }
+
 
     /**
      * Scan and treat a QR code.
@@ -206,6 +224,8 @@ export class CoreMainMenuMorePage implements OnInit, OnDestroy {
     logout(): void {
         this.loggedOut = true;
         CoreSites.logout();
+        CoreNavigator.navigate('/login', { reset: true });
+
     }
 
 }

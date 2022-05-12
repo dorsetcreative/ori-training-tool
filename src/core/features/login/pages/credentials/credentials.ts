@@ -69,7 +69,9 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
      * Initialize the component.
      */
     ngOnInit(): void {
-        const siteUrl = CoreNavigator.getRouteParam<string>('siteUrl');
+        // const siteUrl = CoreNavigator.getRouteParam<string>('siteUrl');
+        const siteUrl = "https://orieducation.com/";
+
         if (!siteUrl) {
             CoreDomUtils.showErrorModal('Site URL not supplied.');
             CoreNavigator.back();
@@ -266,7 +268,7 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
             CoreLoginHelper.treatUserTokenError(siteUrl, error, username, password);
 
             if (error.loggedout) {
-                CoreNavigator.navigate('/login/sites', { reset: true });
+                CoreNavigator.navigate('/login', { reset: true });
             } else if (error.errorcode == 'forcepasswordchangenotice') {
                 // Reset password field.
                 this.credForm.controls.password.reset();

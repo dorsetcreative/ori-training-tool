@@ -211,7 +211,9 @@ ion-header ion-toolbar {
     ion-back-button,
     .in-toolbar.button-clear {
         --color: var(--core-header-toolbar-color);
-        --ion-toolbar-color: var(--core-header-toolbar-color);
+        // --ion-toolbar-color: var(--core-header-toolbar-color);
+        --ion-toolbar-color: var(--brand-color);
+
     }
 
     .button.button-clear,

@@ -1208,11 +1208,13 @@ export class CoreSitesProvider {
             promises.push(this.setSiteLoggedOut(siteId, true));
         }
 
+
         promises.push(db.deleteRecords(CURRENT_SITE_TABLE_NAME, { id: 1 }));
 
         await CoreUtils.ignoreErrors(Promise.all(promises));
 
-        CoreEvents.trigger(CoreEvents.LOGOUT, {}, siteId);
+        // CoreEvents.trigger(CoreEvents.LOGOUT, {}, siteId);
+
     }
 
     /**
@@ -1261,8 +1263,8 @@ export class CoreSitesProvider {
         }
 
         site.setLoggedOut(loggedOut);
-
         await db.updateRecords(SITES_TABLE_NAME, newValues, { id: siteId });
+
     }
 
     /**

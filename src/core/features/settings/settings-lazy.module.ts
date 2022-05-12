@@ -45,6 +45,14 @@ const sectionRoutes: Routes = [
         path: 'about',
         loadChildren: () => import('./pages/about/about.module').then(m => m.CoreSettingsAboutPageModule),
     },
+    {
+        path: 'help',
+        loadChildren: () => import('./pages/help/help.module').then(m => m.HelpPageModule)
+    },
+    {
+        path: 'term',
+        loadChildren: () => import('./pages/term/term.module').then(m => m.TermPageModule)
+    },
 ];
 
 const mobileRoutes: Routes = [

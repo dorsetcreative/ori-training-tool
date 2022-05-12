@@ -10,3 +10,39 @@ $assets-path: "../assets";
 @import "./globals.mixins.ionic.scss";
 @import "./globals.custom.scss";
 @import "./globals.variables.scss";
+
+
+ion-header {
+    background: var(--header-background);
+    box-shadow: 0 3px 6px 0 var(--tab-bar-shadow);
+    ion-toolbar {
+      --background: var(--header-background);
+      //min-height: 90px;
+      display: flex;
+      align-items: center;
+      margin-top: var(--ion-safe-area-top,0);
+      padding-top:0!important;
+  
+      ion-title {
+        line-height: 36px;
+        font-size: 30px;
+        img{
+          width: 195px;
+        }
+      }
+      ion-button {
+        --color: var(--brand-color);
+        --padding-start: 0;
+        --padding-end: 0;
+        ion-icon {
+          font-size: 26px;
+        }
+      }
+    }
+  
+    .green-line{
+      height: 10px;
+      background: linear-gradient(0.25turn, #257C2D 10%, #2AB135 30%)
+    }
+  }
+  

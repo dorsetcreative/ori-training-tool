@@ -14,7 +14,7 @@
         <!-- Default course format. -->
         <core-loading [hideUntil]="loaded">
             <!-- Section selector. -->
-            <core-dynamic-component [component]="sectionSelectorComponent" [data]="data">
+            <!-- <core-dynamic-component [component]="sectionSelectorComponent" [data]="data">
 
                 <div *ngIf="displaySectionSelector && sections && hasSeveralSections"
                     class="ion-text-wrap ion-justify-content-between ion-align-items-center core-button-selector-row"
@@ -34,11 +34,11 @@
                             </core-format-text>
                             <ng-container *ngIf="!selectedSection">{{ 'core.course.sections' | translate }}</ng-container>
                         </span>
-                    </core-combobox>
+                    </core-combobox> -->
                     <!-- Section download. -->
-                    <ng-container *ngTemplateOutlet="sectionDownloadTemplate; context: {section: selectedSection}"></ng-container>
+                    <!-- <ng-container *ngTemplateOutlet="sectionDownloadTemplate; context: {section: selectedSection}"></ng-container>
                 </div>
-            </core-dynamic-component>
+            </core-dynamic-component> -->
 
             <!-- Course summary. By default we only display the course progress. -->
             <core-dynamic-component [component]="courseSummaryComponent" [data]="data">

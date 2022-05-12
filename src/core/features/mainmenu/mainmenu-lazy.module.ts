@@ -44,6 +44,11 @@ function buildRoutes(injector: Injector): Routes {
                     path: CoreMainMenuProvider.MORE_PAGE_NAME,
                     loadChildren: () => import('./pages/more/more.module').then(m => m.CoreMainMenuMorePageModule),
                 },
+                {
+                    path: 'about',
+                    loadChildren: () => import('./pages/about/about.module').then(m => m.AboutPageModule)
+                },
+        
                 ...routes.children,
             ],
         },
