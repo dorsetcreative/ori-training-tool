@@ -70,7 +70,7 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
      */
     ngOnInit(): void {
         // const siteUrl = CoreNavigator.getRouteParam<string>('siteUrl');
-        const siteUrl = "https://thr-dev.dorsetcreative.tech/";
+        const siteUrl = "https://orieducation.com/";
 
         if (!siteUrl) {
             CoreDomUtils.showErrorModal('Site URL not supplied.');
