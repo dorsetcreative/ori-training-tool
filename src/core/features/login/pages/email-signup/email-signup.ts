@@ -64,6 +64,7 @@ export class CoreLoginEmailSignupPage implements OnInit {
     captcha = {
         recaptcharesponse: '',
     };
+    usernamePolicy = 'The username must be all in lowercase with no special characters';
 
     // Data for age verification.
     ageVerificationForm: FormGroup;
