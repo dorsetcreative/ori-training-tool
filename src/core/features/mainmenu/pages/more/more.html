@@ -11,214 +11,88 @@
     </ion-toolbar>
 </ion-header>
 
-
-
-<!-- <ion-content>
-    <h1>More</h1>
-    <core-loading [hideUntil]="!loggedOut">
-        <ion-list>
-           <ion-item button *ngIf="siteInfo" class="ion-text-wrap" core-user-link [userId]="siteInfo.userid" detail="true">
-                <core-user-avatar [user]="siteInfo" slot="start"></core-user-avatar>
-                <ion-label>
-                    <p class="item-heading">{{siteInfo.fullname}}</p>
-                    <p class="core-moremenu-siteinfo core-moremenu-sitename">
-                        <core-format-text [text]="siteName" contextLevel="system" [contextInstanceId]="0" [wsNotFiltered]="true">
-                        </core-format-text>
-                    </p>
-                    <p class="core-moremenu-siteinfo core-moremenu-siteurl">{{ siteUrl }}</p>
-                </ion-label>
-            </ion-item> 
-            <!-- <core-spacer></core-spacer> -->
-            <!-- <ion-item class="ion-text-center" *ngIf="(!handlers || !handlers.length) && !handlersLoaded">
-                <ion-label><ion-spinner [attr.aria-label]="'core.loading' | translate"></ion-spinner></ion-label>
-            </ion-item> -->
-
-
-            <!-- <ion-item button *ngFor="let handler of handlers" [ngClass]="['core-moremenu-handler', handler.class || '']"
-                (click)="openHandler(handler)" [attr.aria-label]="handler.title | translate" detail="true">
-                <ion-icon [name]="handler.icon" slot="start" aria-hidden="true"></ion-icon>
-                <ion-label>
-                    <p class="item-heading">{{ handler.title | translate}}</p>
-                </ion-label>
-                <ion-badge slot="end" *ngIf="handler.showBadge" [hidden]="handler.loading || !handler.badge" aria-hidden="true">
-                    {{handler.badge}}
-                </ion-badge>
-                <span *ngIf="handler.showBadge && handler.badge && handler.badgeA11yText" class="sr-only">
-                    {{ handler.badgeA11yText | translate: {$a : handler.badge } }}
-                </span>
-                <ion-spinner slot="end" *ngIf="handler.showBadge && handler.loading" [attr.aria-label]="'core.loading' | translate">
-                </ion-spinner>
-            </ion-item> -->
-            <!-- <ng-container *ngFor="let item of customItems">
-                <ion-item button *ngIf="item.type != 'embedded'" [href]="item.url" [attr.aria-label]="item.label" core-link
-                    [capture]="item.type == 'app'" [inApp]="item.type == 'inappbrowser'" class="core-moremenu-customitem" detail="true"
-                    [detailIcon]="item.type == 'browser' ? 'open-outline' : 'chevron-forward'">
-                    <ion-icon [name]="item.icon" slot="start" aria-hidden="true"></ion-icon>
-                    <ion-label>
-                        <p class="item-heading">{{item.label}}</p>
-                    </ion-label>
-                </ion-item>
-                <ion-item button *ngIf="item.type == 'embedded'" (click)="openItem(item)" [attr.aria-label]="item.label"
-                    class="core-moremenu-customitem" detail="true">
-                    <ion-icon [name]="item.icon" slot="start" aria-hidden="true"></ion-icon>
-                    <ion-label>
-                        <p class="item-heading">{{item.label}}</p>
-                    </ion-label>
-                </ion-item>
-            </ng-container> -->
-
-            <!-- <ion-item button *ngIf="showScanQR" (click)="scanQR()" detail="true">
-                <ion-icon name="fas-qrcode" slot="start" aria-hidden="true"></ion-icon>
-                <ion-label>
-                    <p class="item-heading">{{ 'core.scanqr' | translate }}</p>
-                </ion-label>
-            </ion-item> -->
-
-
-            <!-- <ion-item button class="ion-text-wrap" core-user-link [userId]="siteInfo.userid" detail="true">
-                <img src="/assets/more/profile-icon-light.svg" width="31" slot="start" aria-hidden="true"/>
-                <ion-label>
-                    <p class="item-heading">Profile</p>
-                </ion-label>
-            </ion-item>
-
-
-            <ion-item button *ngIf="showWeb && siteInfo" [href]="siteInfo.siteurl" core-link autoLogin="yes"
-                [attr.aria-label]="'core.mainmenu.website' | translate" detail="true" >
-                <ion-icon name="fas-globe" slot="start" aria-hidden="true"></ion-icon>
-                <ion-label>
-                    <p class="item-heading">ORI BU Website</p>
-                </ion-label>
-            </ion-item>
-
-            <ion-item button *ngIf="showHelp" [href]="docsUrl" core-link autoLogin="no"
-                [attr.aria-label]="'core.mainmenu.help' | translate" detail="true" >
-                <ion-icon name="far-life-ring" slot="start" aria-hidden="true"></ion-icon>
-                <ion-label>
-                    <p class="item-heading">Help/FAQs</p>
-                </ion-label>
-            </ion-item>
-
-            <ion-item button (click)="openPreferences()" [attr.aria-label]="'core.settings.preferences' | translate" detail="true">
-                <ion-icon name="fas-wrench" slot="start" aria-hidden="true"></ion-icon>
-                <ion-label>
-                    <p class="item-heading">Accessibility settings</p>
-                </ion-label>
-            </ion-item>
-
-            <ion-item button (click)="logout()" [attr.aria-label]="logoutLabel | translate" detail="true">
-                <ion-icon name="fas-sign-out-alt" slot="start" aria-hidden="true"></ion-icon>
-                <ion-label>
-                    <p class="item-heading">{{ logoutLabel | translate }}</p>
-                </ion-label>
-            </ion-item>
-            <!-- <core-spacer></core-spacer> -->
-            <!-- <ion-item button (click)="openSettings()" [attr.aria-label]="'core.settings.appsettings' | translate" detail="true">
-                <ion-icon name="fas-cogs" slot="start" aria-hidden="true"></ion-icon>
-                <ion-label>
-                    <p class="item-heading">{{ 'core.settings.appsettings' | translate }}</p>
-                </ion-label>
-            </ion-item> -->
-        <!-- </ion-list>
-    </core-loading>
-</ion-content>  -->
-
-
-
 <ion-content class="he-page">
- 
+
     <core-loading [hideUntil]="!loggedOut">
         <h1>MORE</h1>
         <div class="he-table">
             <div class="he-table-group">
-                <div class="he-table-row" core-user-link [userId]="siteInfo.userid">
-                    <div class="he-table-icon">
-                        <img src="/assets/more/profile-icon-light.svg" height="32"/>
+
+                <div class="he-table-row" core-user-link [userId]="siteInfo.userid" aria-label="Profile">
+                    <div class="he-table-icon" aria-hidden="true">
+                        <img src="/assets/more/profile-icon-light.svg" height="32" aria-hidden="true"/>
                     </div>
-                    <div class="he-table-title"><p>Profile</p></div>
-                    <div class="he-table-accessory">
-                        <img src="/assets/more/arrow-icon-light.svg" width="11"/>
+                    <div class="he-table-title" aria-hidden="true">
+                        <p aria-hidden="true">Profile</p>
                     </div>
-                </div>
-                <div class="he-table-row" *ngIf="biometricsAvailible">
-                    <div class="he-table-icon">
-                        <img src="/assets/more/faceid-icon-light.svg" height="31"/>
-                    </div>
-                    <div class="he-table-title"><p>Face ID/finger print log in</p></div>
-                    <div class="he-table-accessory">
-                        <app-toggle [value]="biometricsEnabled" (onState)="biometricsChanged($event)"></app-toggle>
+                    <div class="he-table-accessory" aria-hidden="true">
+                        <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
                 </div>
-                <div class="he-table-row" (click)="openSettings()" [attr.aria-label]="'core.settings.appsettings' | translate" detail="true">
-                    <div class="he-table-icon">
+                <div class="he-table-row" (click)="openSettings()" aria-label="Accessibility settings">
+                    <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/accessibility-icon-light.svg" width="28"/>
                     </div>
-                    <div class="he-table-title"><p>Accessibility settings</p></div>
-                    <div class="he-table-accessory">
-                        <img src="/assets/more/arrow-icon-light.svg" width="11"/>
+                    <div class="he-table-title" aria-hidden="true">
+                        <p aria-hidden="true">Accessibility settings</p>
+                    </div>
+                    <div class="he-table-accessory" aria-hidden="true">
+                        <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
                 </div>
 
-     
+
                 <!-- [href]="siteInfo.siteurl" -->
-
-                    <div class="he-table-row" href="https://microsites.bournemouth.ac.uk/ori/" core-link autoLogin="yes"
-                    [attr.aria-label]="'core.mainmenu.website' | translate" detail="true">
-                        <div class="he-table-icon" (click)="openLink('https://microsites.bournemouth.ac.uk/ori/')">
-                            <img src="/assets/more/thr-icon-light.svg" width="27"/>
-                        </div>
-                        <div class="he-table-title"><p>ORI BU Website</p></div>
-                        <div class="he-table-accessory">
-                            <img src="/assets/more/arrow-icon-light.svg" width="11"/>
-                        </div>
+                <div class="he-table-row" href="https://microsites.bournemouth.ac.uk/ori/" core-link autoLogin="yes"
+                     aria-label="website, button">
+                    <div class="he-table-icon" aria-hidden="true">
+                        <img src="/assets/more/thr-icon-light.svg" width="27" aria-hidden="true"/>
                     </div>
-
-
-
-                <!-- </a> -->
-                <!--<div *ngIf="false" class="he-table-row" (click)="openHandler('AddonMoreTermsPage')">-->
-                    <!--<div class="he-table-icon">-->
-                        <!--<img src="/assets/more/terms-icon-light.svg" width="27"/>-->
-                    <!--</div>-->
-                    <!--<div class="he-table-title"><p>Terms and conditions</p></div>-->
-                    <!--<div class="he-table-accessory">-->
-                        <!--<img src="/assets/more/arrow-icon-light.svg" width="11"/>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <div class="he-table-row" routerLink="/tabs/more/term" (click)="openTerm()">
-                    <div class="he-table-icon">
-                        <img src="/assets/more/terms-icon-light.svg" width="27"/>
+                    <div class="he-table-title" aria-hidden="true">
+                        <p aria-hidden="true">ORI BU Website</p>
                     </div>
-                    <div class="he-table-title"><p>Terms and conditions</p></div>
-                    <div class="he-table-accessory">
-                        <img src="/assets/more/arrow-icon-light.svg" width="11"/>
+                    <div class="he-table-accessory" aria-hidden="true">
+                        <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
                 </div>
-                <div class="he-table-row" routerLink="/tabs/more/help" (click)="openHelp()" > 
-                    <!-- (click)="openLink('https://icshealth.co.uk/lcd/app-faqs/')"  -->
-                    <div class="he-table-icon">
-                        <img src="/assets/more/help-icon-light.svg" width="30"/>
+
+                <div class="he-table-row" (click)="openTerm()" aria-label="Terms and conditions">
+                    <div class="he-table-icon" aria-hidden="true">
+                        <img src="/assets/more/terms-icon-light.svg" width="27" aria-hidden="true"/>
                     </div>
-                    <div class="he-table-title"><p>Help/FAQs</p></div>
-                    <div class="he-table-accessory">
-                        <img src="/assets/more/arrow-icon-light.svg" width="11"/>
+                    <div class="he-table-title" aria-hidden="true">
+                        <p aria-hidden="true">Terms and conditions</p>
+                    </div>
+                    <div class="he-table-accessory" aria-hidden="true">
+                        <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
+                    </div>
+                </div>
+                <div class="he-table-row" (click)="openHelp()" aria-label="Help/FAQs">
+                    <div class="he-table-icon" aria-hidden="true">
+                        <img src="/assets/more/help-icon-light.svg" width="30" aria-hidden="true"/>
+                    </div>
+                    <div class="he-table-title" aria-hidden="true">
+                        <p aria-hidden="true">Help/FAQs</p>
+                    </div>
+                    <div class="he-table-accessory" aria-hidden="true">
+                        <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
                 </div>
             </div>
             <div class="he-table-group">
-                <div class="he-table-row" (click)="logout()" [attr.aria-label]="logoutLabel | translate" detail="true">
-                    <div class="he-table-icon">
-                        <img src="/assets/more/signout-icon-light.svg" width="30"/>
+                <div class="he-table-row" (click)="logout()" aria-label="Sign out">
+                    <div class="he-table-icon" aria-hidden="true">
+                        <img src="/assets/more/signout-icon-light.svg" width="30" aria-hidden="true"/>
                     </div>
-                    <div class="he-table-title"><p>Sign out</p></div>
-                    <div class="he-table-accessory">
-                            <img src="/assets/more/arrow-icon-light.svg" width="11"/>
+                    <div class="he-table-title">
+                        <p aria-hidden="true">Sign out</p></div>
+                    <div class="he-table-accessory" aria-hidden="true">
+                        <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- <p class="he-more-appversion">App version v{{ versionNumber }}</p> -->
+
     </core-loading>
 </ion-content>
 

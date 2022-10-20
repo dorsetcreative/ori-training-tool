@@ -36,7 +36,10 @@
     "ionic:serve": "gulp watch & NODE_OPTIONS=--max-old-space-size=4096 ng serve",
     "ionic:build:before": "gulp",
     "postinstall": "npx jetify",
-    "resources": "cordova-res ios && cordova-res android && node scripts/resources.js"
+    "resources": "cordova-res ios && cordova-res android && node scripts/resources.js",
+    "run:android-lr": "npx jetifier && ionic capacitor run android --livereload --external ",
+    "run:ios-lr": "npx jetifier && ionic capacitor run ios --livereload --external ",
+    "run:ios": "npx jetifier && ionic build && npx cap sync ios && npx cap open ios"
   },
   "dependencies": {
     "@angular/animations": "10.0.14",
