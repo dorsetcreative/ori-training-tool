@@ -20,6 +20,10 @@
             align-content: center;
         }
 
+        .core-module-buttons-more {
+            display: none;
+        }
+
         .core-module-buttons core-course-module-completion,
         .core-module-buttons-more button {
             cursor: pointer;
