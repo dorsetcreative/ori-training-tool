@@ -4627,13 +4627,6 @@ cordova-plugin-network-information@2.0.2:
   version "1.0.0"
   resolved "git+https://github.com/moodlemobile/cordova-plugin-prevent-override.git#49507eda3c929e488e58b8402cfc7e1521ebc400"
 
-"cordova-plugin-qrscanner@github:moodlemobile/cordova-plugin-qrscanner#dist":
-  version "3.0.1"
-  resolved "https://codeload.github.com/moodlemobile/cordova-plugin-qrscanner/tar.gz/857efee3a7a49104faabd108ff1f00a57d3aca94"
-  dependencies:
-    qrcode-reader "^1.0.4"
-    webrtc-adapter "^3.1.4"
-
 cordova-plugin-screen-orientation@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/cordova-plugin-screen-orientation/-/cordova-plugin-screen-orientation-3.0.2.tgz#81290a933cfe84d35482cfcb251c931cc7b71931"
@@ -11725,11 +11718,6 @@ q@^1.1.2, q@^1.4.1, q@^1.5.1:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
-qrcode-reader@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/qrcode-reader/-/qrcode-reader-1.0.4.tgz#95d9bb9e8130800361a96cb5a43124ad1d9e06b8"
-  integrity sha512-rRjALGNh9zVqvweg1j5OKIQKNsw3bLC+7qwlnead5K/9cb1cEIAGkwikt/09U0K+2IDWGD9CC6SP7tHAjUeqvQ==
-
 qs@6.9.7:
   version "6.9.7"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.7.tgz#4610846871485e1e048f44ae3b94033f0e675afe"
@@ -12549,11 +12537,6 @@ schema-utils@^3.0.0:
     "@types/json-schema" "^7.0.8"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
-
-sdp@^1.5.0:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/sdp/-/sdp-1.5.4.tgz#8e038f6ddb14bd765ae1f4b5216e12094511e0d0"
-  integrity sha1-jgOPbdsUvXZa4fS1IW4SCUUR4NA=
 
 select-hose@^2.0.0:
   version "2.0.0"
@@ -14637,13 +14620,6 @@ webpack@4.43.0:
     terser-webpack-plugin "^1.4.3"
     watchpack "^1.6.1"
     webpack-sources "^1.4.1"
-
-webrtc-adapter@^3.1.4:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/webrtc-adapter/-/webrtc-adapter-3.4.3.tgz#b636062eee9a6ef158acd0d8501b678434b56f16"
-  integrity sha1-tjYGLu6abvFYrNDYUBtnhDS1bxY=
-  dependencies:
-    sdp "^1.5.0"
 
 websocket-driver@0.6.5:
   version "0.6.5"
