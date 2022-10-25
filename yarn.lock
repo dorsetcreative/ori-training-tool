@@ -3191,6 +3191,11 @@ babel-loader@8.1.0:
     pify "^4.0.1"
     schema-utils "^2.6.5"
 
+babel-plugin-add-header-comment@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-add-header-comment/-/babel-plugin-add-header-comment-1.0.3.tgz#511c4901062640d5a480b4ac3edd6944195850ec"
+  integrity sha1-URxJAQYmQNWkgLSsPt1pRBlYUOw=
+
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.3.tgz#84fda19c976ec5c6defef57f9427b3def66e17a3"
@@ -4622,6 +4627,13 @@ cordova-plugin-network-information@2.0.2:
   version "1.0.0"
   resolved "git+https://github.com/moodlemobile/cordova-plugin-prevent-override.git#49507eda3c929e488e58b8402cfc7e1521ebc400"
 
+"cordova-plugin-qrscanner@github:moodlemobile/cordova-plugin-qrscanner#dist":
+  version "3.0.1"
+  resolved "https://codeload.github.com/moodlemobile/cordova-plugin-qrscanner/tar.gz/857efee3a7a49104faabd108ff1f00a57d3aca94"
+  dependencies:
+    qrcode-reader "^1.0.4"
+    webrtc-adapter "^3.1.4"
+
 cordova-plugin-screen-orientation@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/cordova-plugin-screen-orientation/-/cordova-plugin-screen-orientation-3.0.2.tgz#81290a933cfe84d35482cfcb251c931cc7b71931"
@@ -4684,6 +4696,11 @@ cordova-sqlite-storage@6.0.0:
   integrity sha512-njRloA3AICaUFztKHXoFfVcwlL7zbvyFxtdZIkK7P+MA3umILXtSKhYAQkSe2GtHr0LBNzJI5xUUqAlZl/Js0A==
   dependencies:
     cordova-sqlite-storage-dependencies "4.0.0"
+
+cordova-support-google-services@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/cordova-support-google-services/-/cordova-support-google-services-1.3.2.tgz#39f05f123e12c97adb8cd80cac3f3ff948ca7e23"
+  integrity sha512-RtEWzULreUX662MFWopGhFispLiHX7gUf2GijPOC2mY2oCNuUobj2mO4tl5q7PYbOreSxq+PrSekhmS6TAAWdw==
 
 cordova@10.0.0:
   version "10.0.0"
@@ -7730,6 +7747,11 @@ insight@^0.10.3:
     request "^2.88.0"
     tough-cookie "^3.0.1"
     uuid "^3.3.2"
+
+install@^0.8.2:
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/install/-/install-0.8.9.tgz#9f4b5c0d1851ef872e9df85e4f7162d4e5dcdbed"
+  integrity sha1-n0tcDRhR74cunfheT3Fi1OXc2+0=
 
 internal-ip@^4.3.0:
   version "4.3.0"
@@ -10981,6 +11003,13 @@ phonegap-plugin-multidex@1.0.0:
   resolved "https://registry.yarnpkg.com/phonegap-plugin-multidex/-/phonegap-plugin-multidex-1.0.0.tgz#b0c0ccba04da2c27dd18aeba5cde6be7309594b1"
   integrity sha512-1wvc3iQOQpEBaQbXgLxA2JUiLSQ2azdF/bF29ghXDiQJWSpQ1BF8gSuqttM8WZoj081Ps8OKL0gYxdDBkFNPqA==
 
+"phonegap-plugin-push@github:moodlemobile/phonegap-plugin-push#moodle-v3":
+  version "2.2.3"
+  resolved "https://codeload.github.com/moodlemobile/phonegap-plugin-push/tar.gz/cb332d5ec8a1a0d43916fc6d35455fe6bea7a7f9"
+  dependencies:
+    babel-plugin-add-header-comment "^1.0.3"
+    install "^0.8.2"
+
 picocolors@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-0.2.1.tgz#570670f793646851d1ba135996962abad587859f"
@@ -11695,6 +11724,11 @@ q@^1.1.2, q@^1.4.1, q@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
+
+qrcode-reader@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/qrcode-reader/-/qrcode-reader-1.0.4.tgz#95d9bb9e8130800361a96cb5a43124ad1d9e06b8"
+  integrity sha512-rRjALGNh9zVqvweg1j5OKIQKNsw3bLC+7qwlnead5K/9cb1cEIAGkwikt/09U0K+2IDWGD9CC6SP7tHAjUeqvQ==
 
 qs@6.9.7:
   version "6.9.7"
@@ -12515,6 +12549,11 @@ schema-utils@^3.0.0:
     "@types/json-schema" "^7.0.8"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
+
+sdp@^1.5.0:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/sdp/-/sdp-1.5.4.tgz#8e038f6ddb14bd765ae1f4b5216e12094511e0d0"
+  integrity sha1-jgOPbdsUvXZa4fS1IW4SCUUR4NA=
 
 select-hose@^2.0.0:
   version "2.0.0"
@@ -14598,6 +14637,13 @@ webpack@4.43.0:
     terser-webpack-plugin "^1.4.3"
     watchpack "^1.6.1"
     webpack-sources "^1.4.1"
+
+webrtc-adapter@^3.1.4:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/webrtc-adapter/-/webrtc-adapter-3.4.3.tgz#b636062eee9a6ef158acd0d8501b678434b56f16"
+  integrity sha1-tjYGLu6abvFYrNDYUBtnhDS1bxY=
+  dependencies:
+    sdp "^1.5.0"
 
 websocket-driver@0.6.5:
   version "0.6.5"

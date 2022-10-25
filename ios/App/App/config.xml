@@ -90,8 +90,16 @@
     <param name="onload" value="true"/>
   </feature>
 
+  <feature name="QRScanner">
+    <param name="ios-package" value="QRScanner"/>
+  </feature>
+
   <feature name="WKUserScript">
     <param name="ios-package" value="CDVWKUserScript"/>
+  </feature>
+
+  <feature name="PushNotification">
+    <param name="ios-package" value="PushPlugin"/>
   </feature>
 
   
