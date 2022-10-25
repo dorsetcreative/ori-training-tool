@@ -25,7 +25,6 @@ apply from: "../../node_modules/cordova-android-support-gradle-release/cordova-a
 apply from: "../../node_modules/cordova-plugin-badge/src/android/badge.gradle"
 apply from: "../../node_modules/phonegap-plugin-multidex/multidex.gradle"
 apply from: "../../node_modules/cordova-plugin-local-notification/src/android/build/localnotification.gradle"
-apply from: "../../node_modules/cordova-plugin-qrscanner/src/android/qrscanner.gradle"
 
 if (hasProperty('postBuildExtras')) {
   postBuildExtras()
