@@ -18,7 +18,7 @@
         <div class="he-table">
             <div class="he-table-group">
 
-                <div class="he-table-row" core-user-link [userId]="siteInfo.userid" aria-label="Profile">
+                <div class="he-table-row" core-user-link [userId]="siteInfo.userid" aria-label="Profile" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/profile-icon-light.svg" height="32" aria-hidden="true"/>
                     </div>
@@ -29,7 +29,7 @@
                         <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
                 </div>
-                <div class="he-table-row" (click)="openSettings()" aria-label="Accessibility settings">
+                <div class="he-table-row" (click)="openSettings()" aria-label="Accessibility settings"  role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/accessibility-icon-light.svg" width="28"/>
                     </div>
@@ -44,7 +44,7 @@
 
                 <!-- [href]="siteInfo.siteurl" -->
                 <div class="he-table-row" href="https://microsites.bournemouth.ac.uk/ori/" core-link autoLogin="yes"
-                     aria-label="website, button">
+                     aria-label="website" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/thr-icon-light.svg" width="27" aria-hidden="true"/>
                     </div>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                <div class="he-table-row" (click)="openTerm()" aria-label="Terms and conditions">
+                <div class="he-table-row" (click)="openTerm()" aria-label="Terms and conditions" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/terms-icon-light.svg" width="27" aria-hidden="true"/>
                     </div>
@@ -67,7 +67,7 @@
                         <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
                 </div>
-                <div class="he-table-row" (click)="openHelp()" aria-label="Help/FAQs">
+                <div class="he-table-row" (click)="openHelp()" aria-label="Help/FAQs" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/help-icon-light.svg" width="30" aria-hidden="true"/>
                     </div>
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="he-table-group">
-                <div class="he-table-row" (click)="logout()" aria-label="Sign out">
+                <div class="he-table-row" (click)="logout()" aria-label="Sign out" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/signout-icon-light.svg" width="30" aria-hidden="true"/>
                     </div>
