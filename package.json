@@ -156,7 +156,6 @@
     "cordova-plugin-inappbrowser": "github:moodlemobile/cordova-plugin-inappbrowser#moodle-ionic5",
     "cordova-plugin-local-notification": "github:moodlemobile/cordova-plugin-local-notification#moodle",
     "cordova-plugin-prevent-override": "git+https://github.com/moodlemobile/cordova-plugin-prevent-override.git",
-    "cordova-plugin-qrscanner": "github:moodlemobile/cordova-plugin-qrscanner#dist",
     "cordova-plugin-wkuserscript": "github:moodlemobile/cordova-plugin-wkuserscript",
     "cordova-res": "^0.15.4",
     "eslint": "7.25.0",
@@ -222,7 +221,6 @@
         "KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE": "NO"
       },
       "cordova-plugin-network-information": {},
-      "cordova-plugin-qrscanner": {},
       "cordova-plugin-screen-orientation": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-statusbar": {},

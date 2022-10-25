@@ -71,13 +71,6 @@
         </ion-item>
     </ion-card>
 
-    <!-- Inform what will happen with the choices. -->
-    <ion-card class="core-info-card" *ngIf="canEdit && publishInfo && options.length">
-        <ion-item>
-            <ion-icon name="fas-info-circle" slot="start" aria-hidden="true"></ion-icon>
-            <ion-label>{{ publishInfo | translate }}</ion-label>
-        </ion-item>
-    </ion-card>
 
     <!-- Choice options -->
     <ion-card *ngIf="options.length && choice">
@@ -155,13 +148,6 @@
             </ion-row>
         </ion-grid>
     </div>
-
-    <ion-card class="core-info-card" *ngIf="!canSeeResults && !choiceNotOpenYet">
-        <ion-item>
-            <ion-icon name="fas-info-circle" slot="start" aria-hidden="true"></ion-icon>
-            <ion-label><p>{{ 'addon.mod_choice.noresultsviewable' | translate }}</p></ion-label>
-        </ion-item>
-    </ion-card>
 </core-loading>
 
 <!-- Template to render a choice option label. -->
