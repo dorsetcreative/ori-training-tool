@@ -22,3 +22,9 @@ target 'App' do
   capacitor_pods
   # Add your Pods here
 end
+
+post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+        config.build_settings['OTHER_SWIFT_FLAGS'] ||= ['$(inherited)', '-Xcc', '-Wno-error=non-modular-include-in-framework-module']
+    end
+end
