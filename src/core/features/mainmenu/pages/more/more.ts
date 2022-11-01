@@ -27,6 +27,8 @@ import { CoreCustomURLSchemes } from '@services/urlschemes';
 import { CoreContentLinksHelper } from '@features/contentlinks/services/contentlinks-helper';
 import { CoreTextUtils } from '@services/utils/text';
 import { Translate } from '@singletons';
+import {CoreConfig} from "@services/config";
+import {CoreConstants} from "@/core/constants";
 
 /**
  * Page that displays the main menu of the app.
@@ -37,6 +39,8 @@ import { Translate } from '@singletons';
     styleUrls: ['more.scss'],
 })
 export class CoreMainMenuMorePage implements OnInit, OnDestroy {
+
+    public colorScheme?: string;
 
     handlers?: CoreMainMenuHandlerData[];
     allHandlers?: CoreMainMenuHandlerData[];
@@ -83,6 +87,13 @@ export class CoreMainMenuMorePage implements OnInit, OnDestroy {
         window.addEventListener('resize', this.initHandlers.bind(this));
     }
 
+    public ionViewWillEnter() {
+        this.setColorScheme();
+    }
+
+    public async setColorScheme(): Promise<void> {
+        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME);
+    }
     /**
      * Page destroyed.
      */

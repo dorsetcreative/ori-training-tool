@@ -12,7 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {CoreConfig} from "@services/config";
+import {CoreConstants} from "@/core/constants";
 
 
 @Component({
@@ -20,15 +22,21 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './term.page.html',
   styleUrls: ['./term.page.scss'],
 })
-export class TermPage implements OnInit {
+export class TermPage {
+
 
 
   constructor(
   ) {
- 
   }
 
-  ngOnInit() {
+  public colorScheme?: string;
+
+  public ionViewWillEnter() {
+    this.setColorScheme();
   }
 
+  public async setColorScheme(): Promise<void> {
+    this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME);
+  }
 }
