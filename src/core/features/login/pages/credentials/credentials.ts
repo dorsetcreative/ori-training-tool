@@ -135,8 +135,6 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
 
     public async setColorScheme(): Promise<void> {
         this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME);
-        console.log(this.colorScheme);
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     }
 
     /**
