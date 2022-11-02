@@ -15,8 +15,8 @@
 
         <div class="core-login-site-logo" *ngIf="!showSiteAvatar">
             <!-- Show site logo or a default image. -->
-            <img *ngIf="logoUrl" [src]="logoUrl" role="presentation" onError="this.src='assets/img/login-logo-{{colorScheme}}.svg'" alt="">
-            <img *ngIf="!logoUrl" src="assets/img/login-logo-{{colorScheme}}.svg" role="presentation" alt="">
+            <img *ngIf="logoUrl" [src]="logoUrl" role="presentation" onError="this.src='assets/img/login-logo-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg'" alt="">
+            <img *ngIf="!logoUrl" src="assets/img/login-logo-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg" role="presentation" alt="">
         </div>
 
         <p *ngIf="siteName" class="ion-padding core-sitename">
