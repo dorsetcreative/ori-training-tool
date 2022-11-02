@@ -6,7 +6,7 @@
 
         <!-- <h1><core-format-text [text]="siteName" contextLevel="system" [contextInstanceId]="0"></core-format-text></h1> -->
         <ion-title>
-            <img src="/assets/img/ori-logo-header-{{colorScheme}}.svg" role="presentation">
+            <img src="/assets/img/ori-logo-header-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg" role="presentation">
         </ion-title>
     </ion-toolbar>
 </ion-header>
