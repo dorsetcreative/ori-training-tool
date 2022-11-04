@@ -4,7 +4,7 @@
             <ion-back-button [text]="'core.back' | translate"></ion-back-button>
         </ion-buttons>
         <ion-title>
-            <img src="/assets/img/ori-logo-header-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg" role="presentation">
+            <img *ngIf="colorScheme" src="/assets/img/ori-logo-header-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg" role="presentation">
         </ion-title>
     </ion-toolbar>
 </ion-header>
