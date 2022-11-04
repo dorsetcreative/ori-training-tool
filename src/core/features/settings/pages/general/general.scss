@@ -3,3 +3,7 @@
         max-width: 250px;
     }
 }
+
+ion-content.dark, .system {
+    filter: contrast(1.4) brightness(1.4);
+}
