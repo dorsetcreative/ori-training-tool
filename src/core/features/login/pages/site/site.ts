@@ -46,6 +46,8 @@ export class CoreLoginSitePage implements OnInit {
 
     @ViewChild('siteFormEl') formElement?: ElementRef;
 
+    public colorScheme?: string;
+
     siteForm: FormGroup;
     fixedSites?: CoreLoginSiteInfoExtended[];
     filteredSites?: CoreLoginSiteInfoExtended[];
@@ -116,6 +118,15 @@ export class CoreLoginSitePage implements OnInit {
      */
     ngOnInit(): void {
         this.showKeyboard = !!CoreNavigator.getRouteBooleanParam('showKeyboard');
+    }
+
+
+    public ionViewWillEnter() {
+        this.setColorScheme();
+    }
+
+    public async setColorScheme(): Promise<void> {
+        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME);
     }
 
     /**
