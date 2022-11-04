@@ -13,6 +13,8 @@
 // limitations under the License.
 
 import { Component, OnInit } from '@angular/core';
+import {CoreConfig} from "@services/config";
+import {CoreConstants} from "@/core/constants";
 // import {CoreConstants} from "../../../../../shared/constants/main-constants";
 // import {CoreStorageProvider} from "../../../../../shared/providers/storage.service";
 
@@ -21,19 +23,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './help.page.html',
   styleUrls: ['./help.page.scss'],
 })
-export class HelpPage implements OnInit {
+export class HelpPage {
 
-  // colorScheme:string;
+  public colorScheme?: string;
 
-  constructor(
-    // private storageProvider:CoreStorageProvider,
-  ) {
-    // this.storageProvider.getFromStorage(CoreConstants.SETTINGS_COLOR_SCHEME).then((res: string) => {
-    //   this.colorScheme = res;
-    // });
+  public ionViewWillEnter() {
+    this.setColorScheme();
   }
 
-  ngOnInit() {
+  public async setColorScheme(): Promise<void> {
+    this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME);
   }
-
 }

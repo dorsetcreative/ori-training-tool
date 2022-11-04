@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { ContextLevel } from '@/core/constants';
+import {ContextLevel, CoreConstants} from '@/core/constants';
 import { AddonBlog, AddonBlogFilter, AddonBlogPost, AddonBlogProvider } from '@addons/blog/services/blog';
 import { Component, OnInit } from '@angular/core';
 import { CoreComments } from '@features/comments/services/comments';
@@ -24,6 +24,7 @@ import { CoreSites } from '@services/sites';
 import { CoreDomUtils } from '@services/utils/dom';
 import { CoreTextUtils } from '@services/utils/text';
 import { CoreUtils } from '@services/utils/utils';
+import {CoreConfig} from "@services/config";
 
 /**
  * Page that displays the list of blog entries.
@@ -42,6 +43,8 @@ export class AddonBlogEntriesPage implements OnInit {
     protected canLoadMoreEntries = false;
     protected canLoadMoreUserEntries = true;
     protected siteHomeId: number;
+
+    public colorScheme?: string;
 
     loaded = false;
     canLoadMore = false;
@@ -121,6 +124,15 @@ export class AddonBlogEntriesPage implements OnInit {
         await this.fetchEntries();
 
         CoreUtils.ignoreErrors(AddonBlog.logView(this.filter));
+    }
+
+
+    public ionViewWillEnter() {
+        this.setColorScheme();
+    }
+
+    public async setColorScheme(): Promise<void> {
+        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME);
     }
 
     /**
