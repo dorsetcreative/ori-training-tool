@@ -16,7 +16,7 @@
 <ion-content class="ion-padding">
     <div class="ion-text-center ion-padding ion-margin-bottom core-login-site-logo"
         [class.hidden]="hasSites || enteredSiteUrl">
-        <img src="assets/img/login-logo-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg" class="avatar-full login-logo" role="presentation" alt="">
+        <img *ngIf="colorScheme" src="assets/img/login-logo-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg" class="avatar-full login-logo" role="presentation" alt="">
     </div>
     <form [formGroup]="siteForm" (ngSubmit)="connect($event, siteForm.value.siteUrl)" *ngIf="!fixedSites" #siteFormEl>
         <!-- Form to input the site URL if there are no fixed sites. -->

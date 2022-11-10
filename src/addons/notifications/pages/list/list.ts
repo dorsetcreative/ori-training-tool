@@ -89,7 +89,7 @@ export class AddonNotificationsListPage implements OnInit, OnDestroy {
     }
 
     public async setColorScheme(): Promise<void> {
-        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME);
+        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME).catch((er) => 'light') as string;
     }
 
     /**
