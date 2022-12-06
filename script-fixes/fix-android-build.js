@@ -54,9 +54,9 @@ function fixWhitelistUsage() {
                 return console.log(err);
             }
             let result = data.toString();
-            result = result.replaceAll('Whitelist', 'AllowList');
-            result = result.replaceAll('WhiteList', 'AllowList');
-            result = result.replaceAll('AllowListPlugin', 'WhitelistPlugin');
+            result = result.replace(/Whitelist/g, 'AllowList');
+            result = result.replace(/WhiteList/g, 'AllowList');
+            result = result.replace(/AllowListPlugin/g, 'WhitelistPlugin');
 
             fs.writeFile(sourceFile, result, "utf8", onError);
             console.log(src.split('/')[src.split('/').length - 1], '-- FIXED')
