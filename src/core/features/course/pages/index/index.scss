@@ -1,16 +1,2 @@
 
-:host {
-  filter: contrast(2);
-}
-
-
-::ng-deep {
-  img, video {
-    filter: contrast(0.5);
-  }
-
-  iframe {
-    filter: contrast(0.5);
-  }
-}
 
