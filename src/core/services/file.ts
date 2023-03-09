@@ -1278,7 +1278,7 @@ export class CoreFileProvider {
 
         const scheme = CoreApp.isIOS() ? CoreConstants.CONFIG.ioswebviewscheme : 'http';
 
-        return src.replace(scheme + '://localhost/_app_file_', 'file://');
+        return src.replace(scheme + '://localhost/_capacitor_file_', 'file://');
     }
 
     /**
