@@ -94,7 +94,7 @@
     "enableonboarding": true,
     "forceColorScheme": "",
     "forceLoginLogo": false,
-    "ioswebviewscheme": "moodleappfs",
+    "ioswebviewscheme": "capacitor",
     "appstores": {
         "android": "com.moodle.moodlemobile",
         "ios": "id633359593"
