@@ -65,6 +65,25 @@ function fixWhitelistUsage() {
 
 }
 
+// This hook replace deprecated method from capacitor
+// "settings.setAppCacheEnabled(true)" should be removed
+function fixDeprecatedBridgeMethod() {
+    const sourcePath = "node_modules/@capacitor/android/capacitor/src/main/java/com/getcapacitor/Bridge.java";
+    const sourceFile = path.join(rootdir, sourcePath);
+
+    fs.readFile(sourceFile, "utf8", (err, data) => {
+        if (err) {
+            return console.log(err);
+        }
+        let result = data.toString();
+        result = result.replace(/^.*settings.setAppCacheEnabled\(true\);.*$\n/gm, '');
+
+        fs.writeFile(sourceFile, result, "utf8", onError);
+        console.log('Bridge.java -- FIXED')
+    });
+
+}
+
 // error callback
 function onError(err) {
     if (err) {
@@ -75,3 +94,4 @@ function onError(err) {
 // LAUNCH FIX FUNCTIONS
 fixCapacitorCordovaPluginsManifest();
 fixWhitelistUsage();
+fixDeprecatedBridgeMethod()
