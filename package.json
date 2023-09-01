@@ -40,10 +40,12 @@
     "run:android-lr": "ionic capacitor run android --livereload --external",
     "run:android": "ionic build && npx cap sync android && node script-fixes/fix-android-build.js && npx cap open android",
     "sync:android": "ionic build && npx cap sync android && node script-fixes/fix-android-build.js",
+    "sync:ios": "ionic build && npx cap sync ios",
     "run:ios-lr": "ionic capacitor run ios --livereload --external",
     "run:ios": "ionic build && npx cap sync ios && npx cap open ios",
     "run": "ionic build && ionic capacitor sync ios && ionic capacitor open ios && ionic capacitor sync android && node script-fixes/fix-android-build.js && ionic capacitor open android ",
-    "open:android": "ionic capacitor open android"
+    "open:android": "ionic capacitor open android",
+    "open:ios": "ionic capacitor open ios"
   },
   "dependencies": {
     "@angular/animations": "10.0.14",
