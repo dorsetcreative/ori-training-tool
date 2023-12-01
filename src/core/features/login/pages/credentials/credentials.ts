@@ -27,6 +27,7 @@ import { CoreSiteIdentityProvider, CoreSitePublicConfigResponse } from '@classes
 import { CoreEvents } from '@singletons/events';
 import { CoreNavigator } from '@services/navigator';
 import { CoreForms } from '@singletons/form';
+import {CoreConfig} from "@services/config";
 
 /**
  * Page to enter the user credentials.
@@ -40,11 +41,14 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
 
     @ViewChild('credentialsForm') formElement?: ElementRef<HTMLFormElement>;
 
+    public colorScheme?: string;
+
     credForm!: FormGroup;
     siteUrl!: string;
     siteChecked = false;
     siteName?: string;
     logoUrl?: string;
+    localLogoUrl?: string;
     authInstructions?: string;
     canSignup?: boolean;
     identityProviders?: CoreSiteIdentityProvider[];
@@ -70,7 +74,7 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
      */
     ngOnInit(): void {
         // const siteUrl = CoreNavigator.getRouteParam<string>('siteUrl');
-        const siteUrl = "https://thr-dev.dorsetcreative.tech/";
+        const siteUrl = "https://orieducation.com/";
 
         if (!siteUrl) {
             CoreDomUtils.showErrorModal('Site URL not supplied.');
@@ -123,6 +127,14 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
                 }
             });
         }
+    }
+
+    public ionViewWillEnter() {
+        this.setColorScheme();
+    }
+
+    public async setColorScheme(): Promise<void> {
+        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME).catch((er) => 'light') as string;
     }
 
     /**

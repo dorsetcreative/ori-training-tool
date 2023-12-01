@@ -3,23 +3,24 @@
         <ion-buttons slot="start">
             <ion-back-button [text]="'core.back' | translate"></ion-back-button>
         </ion-buttons>
-        <ion-title>
-            <img src="/assets/img/ori-logo-header-light.png" role="presentation">
+        <ion-title aria-hidden="true">
+            <img *ngIf="colorScheme" src="/assets/img/ori-logo-header-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg" role="presentation">
 
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="he-page">
-   
 
-    <h1>Help/FAQs</h1>
+
+    <h1 aria-label="Help slash F A Q's">Help/FAQs</h1>
     <div class="faq-container">
         <p class="question">
             I have forgotten my username or password.
         </p>
         <p class="answer">
-            If you have forgotten your username or password, please select ‘Forgotten your username or password’ on the home screen where you will be given instructions on how to reset your account details. 
+            If you have forgotten your username or password, please select ‘Forgotten your username or password’ on the
+            home screen where you will be given instructions on how to reset your account details.
         </p>
     </div>
     <div class="faq-container">
@@ -27,19 +28,21 @@
             How do I gain access to a course?
         </p>
         <p class="answer">
-            Locate or search for the desired course (you can click 'All courses...' in the 'My courses' block) and click on the course name. Click Enroll me in this course. Once you are enrolled in a course, it will appear under "My courses" any time that you are logged into the ORI education site.
-        </p>
-    </div>    
-    <div class="faq-container">
-        <p class="question"> 
-            How do I get back to the home page?
-        </p>
-        <p class="answer">
-            Use the navigation bar at the top left of the page or the button at the very bottom of the course.
+            Locate or search for the desired course (you can click 'All courses...' in the 'My courses' block) and click
+            on the course name. Click Enroll me in this course. Once you are enrolled in a course, it will appear under
+            "My courses" any time that you are logged into the ORI education site.
         </p>
     </div>
     <div class="faq-container">
-        <p class="question"> 
+        <p class="question">
+            How do I get back to the home page?
+        </p>
+        <p class="answer">
+            Use the navigation bar at the top left of the page or the button at the very bottom of the course.
+        </p>
+    </div>
+    <div class="faq-container">
+        <p class="question">
             How do I jump between my courses?
         </p>
         <ol class="answer">
@@ -48,19 +51,31 @@
         </ol>
     </div>
     <div class="faq-container">
-        <p class="question"> 
+        <p class="question">
             If I need help, who do I contact?
         </p>
         <p class="answer">
-            Please contact the team at the Orthopaedic Research Institute, Bournemouth University, if you need any help using the ORI education system (<a href="mailto:ori@bournemouth.ac.uk">ori@bournemouth.ac.uk</a>).
+            <span aria-labelledby="instruction1 email1" role="text"  id="instruction1">
+                Please contact the team at the Orthopaedic Research Institute,
+                Bournemouth University, if you need any help using the ORI education system
+            </span>
+            <span aria-hidden="true">(</span>
+            <a id="email1" tabindex=0 aria-label="ori@bournemouth.ac.uk" href="mailto:ori@bournemouth.ac.uk">ori@bournemouth.ac.uk</a>
+            <span aria-hidden="true">).</span>
         </p>
     </div>
     <div class="faq-container">
-        <p class="question"> 
+        <p class="question">
             How do I report a technical issue?
         </p>
         <p class="answer">
-            Please contact the team at the Orthopaedic Research Institute, Bournemouth University, if you need to report a technical fault with the ORI education system (<a href="mailto:ori@bournemouth.ac.uk">ori@bournemouth.ac.uk</a>). 
+            <span aria-labelledby="instruction2 email2" role="text"  id="instruction2">
+                Please contact the team at the Orthopaedic Research Institute, Bournemouth University,
+                if you need to report a technical fault with the ORI education system
+            </span>
+            <span aria-hidden="true">(</span>
+            <a id="email2" tabindex=0 aria-label="ori@bournemouth.ac.uk" href="mailto:ori@bournemouth.ac.uk">ori@bournemouth.ac.uk</a>
+            <span aria-hidden="true">).</span>
         </p>
     </div>
 </ion-content>

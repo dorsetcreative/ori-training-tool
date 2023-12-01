@@ -24,6 +24,8 @@ import { CoreEvents, CoreEventObserver } from '@singletons/events';
 import { AddonNotifications, AddonNotificationsAnyNotification, AddonNotificationsProvider } from '../../services/notifications';
 import { AddonNotificationsHelper } from '../../services/notifications-helper';
 import { CorePushNotificationsDelegate } from '@features/pushnotifications/services/push-delegate';
+import {CoreConfig} from "@services/config";
+import {CoreConstants} from "@/core/constants";
 
 /**
  * Page that displays the list of notifications.
@@ -41,6 +43,8 @@ export class AddonNotificationsListPage implements OnInit, OnDestroy {
     loadMoreError = false;
     canMarkAllNotificationsAsRead = false;
     loadingMarkAllNotificationsAsRead = false;
+
+    public colorScheme?: string;
 
     protected isCurrentView?: boolean;
     protected cronObserver?: CoreEventObserver;
@@ -77,6 +81,15 @@ export class AddonNotificationsListPage implements OnInit, OnDestroy {
             this.notificationsLoaded = false;
             this.refreshNotifications();
         });
+    }
+
+
+    public ionViewWillEnter() {
+        this.setColorScheme();
+    }
+
+    public async setColorScheme(): Promise<void> {
+        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME).catch((er) => 'light') as string;
     }
 
     /**

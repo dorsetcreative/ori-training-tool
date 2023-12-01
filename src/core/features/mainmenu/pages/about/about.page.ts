@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CoreConfig} from "@services/config";
+import {CoreConstants} from "@/core/constants";
 
 
 @Component({
@@ -8,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutPage implements OnInit {
 
+  public colorScheme?: string;
 
   constructor(
   ) {
@@ -17,4 +20,11 @@ export class AboutPage implements OnInit {
   ngOnInit() {
   }
 
+  public ionViewWillEnter() {
+    this.setColorScheme();
+  }
+
+  public async setColorScheme(): Promise<void> {
+    this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME).catch((er) => 'light') as string;
+  }
 }

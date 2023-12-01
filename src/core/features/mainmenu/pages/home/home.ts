@@ -12,20 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Subscription} from 'rxjs';
 
-import { CoreSites } from '@services/sites';
-import { CoreEventObserver, CoreEvents } from '@singletons/events';
-import { CoreTabsOutletComponent, CoreTabsOutletTab } from '@components/tabs-outlet/tabs-outlet';
-import { CoreMainMenuHomeDelegate, CoreMainMenuHomeHandlerToDisplay } from '../../services/home-delegate';
-import { CoreUtils } from '@services/utils/utils';
-import { ActivatedRoute } from '@angular/router';
-import { CoreNavigator, CoreRedirectPayload } from '@services/navigator';
-import { CoreCourseHelper } from '@features/course/services/course-helper';
-import { CoreCourse } from '@features/course/services/course';
-import { CoreContentLinksDelegate } from '@features/contentlinks/services/contentlinks-delegate';
-import { CoreContentLinksHelper } from '@features/contentlinks/services/contentlinks-helper';
+import {CoreSites} from '@services/sites';
+import {CoreEventObserver, CoreEvents} from '@singletons/events';
+import {CoreTabsOutletComponent, CoreTabsOutletTab} from '@components/tabs-outlet/tabs-outlet';
+import {CoreMainMenuHomeDelegate, CoreMainMenuHomeHandlerToDisplay} from '../../services/home-delegate';
+import {CoreUtils} from '@services/utils/utils';
+import {ActivatedRoute} from '@angular/router';
+import {CoreNavigator, CoreRedirectPayload} from '@services/navigator';
+import {CoreCourseHelper} from '@features/course/services/course-helper';
+import {CoreCourse} from '@features/course/services/course';
+import {CoreContentLinksDelegate} from '@features/contentlinks/services/contentlinks-delegate';
+import {CoreContentLinksHelper} from '@features/contentlinks/services/contentlinks-helper';
+import {CoreConfig} from "@services/config";
+import {CoreConstants} from "@/core/constants";
 
 /**
  * Page that displays the Home.
@@ -43,6 +45,7 @@ export class CoreMainMenuHomePage implements OnInit {
     tabs: CoreTabsOutletTab[] = [];
     loaded = false;
     selectedTab?: number;
+    colorScheme?: string;
 
     protected subscription?: Subscription;
     protected updateSiteObserver?: CoreEventObserver;
@@ -79,6 +82,22 @@ export class CoreMainMenuHomePage implements OnInit {
         this.updateSiteObserver = CoreEvents.on(CoreEvents.SITE_UPDATED, () => {
             this.loadSiteName();
         }, CoreSites.getCurrentSiteId());
+    }
+
+    public ionViewWillEnter(): void {
+        this.setColorScheme();
+    }
+
+    public ionViewDidEnter(): void {
+        this.tabsComponent?.ionViewDidEnter();
+    }
+
+    public ionViewDidLeave(): void {
+        this.tabsComponent?.ionViewDidLeave();
+    }
+
+    public async setColorScheme(): Promise<void> {
+        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME).catch((er) => 'light') as string;
     }
 
     /**
@@ -189,19 +208,4 @@ export class CoreMainMenuHomePage implements OnInit {
         delete this.pendingRedirect;
         delete this.urlToOpen;
     }
-
-    /**
-     * User entered the page.
-     */
-    ionViewDidEnter(): void {
-        this.tabsComponent?.ionViewDidEnter();
-    }
-
-    /**
-     * User left the page.
-     */
-    ionViewDidLeave(): void {
-        this.tabsComponent?.ionViewDidLeave();
-    }
-
 }

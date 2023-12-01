@@ -25,6 +25,8 @@ import { CoreEvents } from '@singletons/events';
 import { CoreError } from '@classes/errors/error';
 import { CoreNavigationOptions, CoreNavigator } from '@services/navigator';
 import { CoreForms } from '@singletons/form';
+import {CoreConfig} from "@services/config";
+import {CoreConstants} from "@/core/constants";
 
 /**
  * Page to enter the user password to reconnect to a site.
@@ -37,6 +39,8 @@ import { CoreForms } from '@singletons/form';
 export class CoreLoginReconnectPage implements OnInit, OnDestroy {
 
     @ViewChild('reconnectForm') formElement?: ElementRef;
+
+    public colorScheme?: string;
 
     credForm: FormGroup;
     siteUrl!: string;
@@ -125,6 +129,15 @@ export class CoreLoginReconnectPage implements OnInit, OnDestroy {
             this.cancel();
         }
     }
+
+    public ionViewWillEnter() {
+        this.setColorScheme();
+    }
+
+    public async setColorScheme(): Promise<void> {
+        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME).catch((er) => 'light') as string;
+    }
+
 
     /**
      * Component destroyed.

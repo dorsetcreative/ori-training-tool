@@ -1,5 +1,19 @@
 @import "~theme/globals";
 
+
+ion-content.dark, .system {
+
+
+  ion-input {
+    --placeholder-opacity: 1;
+  }
+
+  .button-disabled {
+    opacity: 1;
+  }
+}
+
+
 :host {
   ion-content,
   ion-list {

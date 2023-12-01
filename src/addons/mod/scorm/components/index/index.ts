@@ -556,6 +556,7 @@ export class AddonModScormIndexComponent extends CoreCourseModuleMainActivityCom
                     organizationId: this.currentOrganization.identifier,
                     scoId: scoId,
                 },
+                replaceUrl: true,
             },
         );
     }

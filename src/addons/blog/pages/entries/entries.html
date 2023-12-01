@@ -5,7 +5,7 @@
         </ion-buttons>
         <!-- <h1>{{ title | translate }}</h1> -->
         <ion-title>
-            <img src="/assets/img/ori-logo-header-light.png" role="presentation">
+            <img *ngIf="colorScheme" src="/assets/img/ori-logo-header-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg" role="presentation">
         </ion-title>
 
         <ion-buttons slot="end"></ion-buttons>

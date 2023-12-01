@@ -18,6 +18,7 @@ import { CoreConfig } from '@services/config';
 import { CoreUtils } from '@services/utils/utils';
 import { CoreLoginHelperProvider } from '@features/login/services/login-helper';
 import { ModalController } from '@singletons';
+import {CoreConstants} from "@/core/constants";
 
 /**
  * Component that displays onboarding help regarding the CoreLoginSitePage.
@@ -30,6 +31,16 @@ import { ModalController } from '@singletons';
 export class CoreLoginSiteOnboardingComponent {
 
     step = 0;
+    public colorScheme?: string;
+
+
+    public ionViewWillEnter() {
+        this.setColorScheme();
+    }
+
+    public async setColorScheme(): Promise<void> {
+        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME).catch((er) => 'light') as string;
+    }
 
     /**
      * Go to next step.

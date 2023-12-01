@@ -32,6 +32,8 @@ import {
 import { AddonPrivateFilesHelper } from '@/addons/privatefiles/services/privatefiles-helper';
 import { CoreUtils } from '@services/utils/utils';
 import { CoreNavigator } from '@services/navigator';
+import {CoreConfig} from "@services/config";
+import {CoreConstants} from "@/core/constants";
 
 /**
  * Page that displays the list of files.
@@ -41,6 +43,8 @@ import { CoreNavigator } from '@services/navigator';
     templateUrl: 'index.html',
 })
 export class AddonPrivateFilesIndexPage implements OnInit, OnDestroy {
+
+    public colorScheme?: string;
 
     title!: string; // Page title.
     root?: 'my' | 'site'; // The root of the files loaded: 'my' or 'site'.
@@ -103,6 +107,14 @@ export class AddonPrivateFilesIndexPage implements OnInit, OnDestroy {
         } else {
             this.filesLoaded = true;
         }
+    }
+
+    public ionViewWillEnter() {
+        this.setColorScheme();
+    }
+
+    public async setColorScheme(): Promise<void> {
+        this.colorScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME).catch((er) => 'light') as string;
     }
 
     /**

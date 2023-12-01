@@ -53,6 +53,7 @@ export type CoreNavigationOptions = Pick<NavigationOptions, 'animated'|'animatio
         isSitePath?: boolean;
         options?: CoreNavigationOptions;
     };
+    replaceUrl?: boolean;
 };
 
 /**
@@ -136,6 +137,7 @@ export class CoreNavigatorService {
             animationDirection: options.animationDirection,
             queryParams: CoreObject.isEmpty(options.params ?? {}) ? null : CoreObject.withoutEmpty(options.params),
             relativeTo: path.startsWith('/') ? null : this.getCurrentRoute(),
+            replaceUrl: options.replaceUrl ?? false,
         });
 
         // Remove objects from queryParams and replace them with an ID.
@@ -149,7 +151,6 @@ export class CoreNavigatorService {
             if (options.nextNavigation.isSitePath) {
                 return this.navigateToSitePath(options.nextNavigation.path, options.nextNavigation.options);
             }
-
             return this.navigate(options.nextNavigation.path, options.nextNavigation.options);
         }
 
