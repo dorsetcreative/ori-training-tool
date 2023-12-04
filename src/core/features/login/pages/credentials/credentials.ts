@@ -12,22 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Subscription} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 
-import { CoreApp } from '@services/app';
-import { CoreSites } from '@services/sites';
-import { CoreDomUtils } from '@services/utils/dom';
-import { CoreLoginHelper } from '@features/login/services/login-helper';
-import { CoreConstants } from '@/core/constants';
-import { Translate } from '@singletons';
-import { CoreSiteIdentityProvider, CoreSitePublicConfigResponse } from '@classes/site';
-import { CoreEvents } from '@singletons/events';
-import { CoreNavigator } from '@services/navigator';
-import { CoreForms } from '@singletons/form';
+import {CoreApp} from '@services/app';
+import {CoreSites} from '@services/sites';
+import {CoreDomUtils} from '@services/utils/dom';
+import {CoreLoginHelper} from '@features/login/services/login-helper';
+import {CoreConstants} from '@/core/constants';
+import {Translate} from '@singletons';
+import {CoreSiteIdentityProvider, CoreSitePublicConfigResponse} from '@classes/site';
+import {CoreEvents} from '@singletons/events';
+import {CoreNavigator} from '@services/navigator';
+import {CoreForms} from '@singletons/form';
 import {CoreConfig} from "@services/config";
+import {environment} from "@/environments/environment";
 
 /**
  * Page to enter the user credentials.
@@ -73,8 +74,7 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
      * Initialize the component.
      */
     ngOnInit(): void {
-        // const siteUrl = CoreNavigator.getRouteParam<string>('siteUrl');
-        const siteUrl = "https://orieducation.com/";
+        const siteUrl = environment.siteUrl;
 
         if (!siteUrl) {
             CoreDomUtils.showErrorModal('Site URL not supplied.');
@@ -348,4 +348,8 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
         this.valueChangeSubscription?.unsubscribe();
     }
 
+    public handleImageError(event: any) {
+        const color = this.colorScheme === 'light' ? 'light' : 'dark';
+        event.target.src = `assets/img/login-logo-${color}.svg`;
+    }
 }

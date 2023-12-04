@@ -15,7 +15,7 @@
 
         <div class="core-login-site-logo" *ngIf="!showSiteAvatar">
             <!-- Show site logo or a default image. -->
-            <img *ngIf="logoUrl && colorScheme" [src]="logoUrl" role="presentation" onError="this.src='assets/img/login-logo-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg'" alt="">
+            <img *ngIf="logoUrl && colorScheme" [src]="logoUrl" role="presentation" (error)="handleImageError($event)" alt="">
             <img *ngIf="!logoUrl && colorScheme" src="assets/img/login-logo-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg" role="presentation" alt="">
         </div>
 

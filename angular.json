@@ -19,6 +19,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "showCircularDependencies": false,
             "assets": [
               {
                 "glob": "**/*",
@@ -39,42 +40,56 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
-              "optimization": {
-                "scripts": false,
-                "styles": true
-              },
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
+            "prod": {
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "50mb",
                   "maximumError": "100mb"
                 }
-              ]
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              },
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            },
+            "non-prod": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             },
             "ci": {
               "progress": false
             }
-          }
+          },
+          "defaultConfiguration": "non-prod"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app:build",
-            "disableHostCheck": true,
-            "port": 8100
+            "browserTarget": "app:build:non-prod"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "app:build:production"
+            "prod": {
+              "browserTarget": "app:build:prod"
+            },
+            "non-prod": {
+              "browserTarget": "app:build:non-prod"
             },
             "ci": {
               "progress": false
@@ -95,30 +110,6 @@
               "src/core/**/*.html",
               "src/addons/**/*.html"
             ]
-          }
-        },
-        "ionic-cordova-build": {
-          "builder": "@ionic/angular-toolkit:cordova-build",
-          "options": {
-            "browserTarget": "app:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "app:build:production"
-            }
-          }
-        },
-        "ionic-cordova-serve": {
-          "builder": "@ionic/angular-toolkit:cordova-serve",
-          "options": {
-            "cordovaBuildTarget": "app:ionic-cordova-build",
-            "devServerTarget": "app:serve"
-          },
-          "configurations": {
-            "production": {
-              "cordovaBuildTarget": "app:ionic-cordova-build:production",
-              "devServerTarget": "app:serve:production"
-            }
           }
         }
       }

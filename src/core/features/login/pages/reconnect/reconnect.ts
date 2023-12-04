@@ -302,4 +302,8 @@ export class CoreLoginReconnectPage implements OnInit, OnDestroy {
         }
     }
 
+    public handleImageError(event: any) {
+        const color = this.colorScheme === 'light' ? 'light' : 'dark';
+        event.target.src = `assets/img/login-logo-${color}.svg`;
+    }
 }
