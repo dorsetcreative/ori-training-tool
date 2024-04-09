@@ -1493,7 +1493,7 @@
     "core.course.insufficientavailablequota": "Your device could not allocate space to save this download. It may be reserving space for app and system updates. Please clear some storage space first.",
     "core.course.insufficientavailablespace": "You are trying to download {{size}}. This will leave your device with insufficient space to operate normally. Please clear some storage space first.",
     "core.course.manualcompletionnotsynced": "Manual completion not synchronised.",
-    "core.course.nocontentavailable": "No content available at the moment.",
+    "core.course.nocontentavailable": "No content available at the moment, please refresh the screen in a few minutes.",
     "core.course.overriddennotice": "Your final grade from this activity was manually adjusted.",
     "core.course.refreshcourse": "Refresh course",
     "core.course.section": "Section",
