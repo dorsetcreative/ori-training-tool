@@ -31,6 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { JitCompilerFactory } from '@angular/platform-browser-dynamic';
 import { CoreCronDelegate } from '@services/cron';
 import { CoreSiteInfoCronHandler } from '@services/handlers/site-info-cron';
+import { CoreAppProvider } from '@services/app';
 
 // For translate loader. AoT requires an exported function for factories.
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
@@ -66,7 +67,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         {
             provide: APP_INITIALIZER,
             multi: true,
-            deps: [],
+            deps: [CoreAppProvider],
             useFactory: () => () => {
                 CoreCronDelegate.register(CoreSiteInfoCronHandler.instance);
             },

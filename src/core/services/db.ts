@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { SQLiteDB } from '@classes/sqlitedb';
-import { SQLiteDBMock } from '@features/emulator/classes/sqlitedb';
-import { makeSingleton, SQLite, Platform } from '@singletons';
+import {SQLiteDB} from '@classes/sqlitedb';
+import {SQLiteDBMock} from '@features/emulator/classes/sqlitedb';
+import {makeSingleton, Platform, SQLite} from '@singletons';
 
 /**
  * This service allows interacting with the local database to store and retrieve data.
  */
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class CoreDbProvider {
 
     protected dbInstances: {[name: string]: SQLiteDB} = {};
@@ -37,11 +37,7 @@ export class CoreDbProvider {
      */
     getDB(name: string, forceNew?: boolean): SQLiteDB {
         if (typeof this.dbInstances[name] === 'undefined' || forceNew) {
-            if (Platform.is('cordova')) {
-                this.dbInstances[name] = new SQLiteDB(name);
-            } else {
-                this.dbInstances[name] = new SQLiteDBMock(name);
-            }
+            this.dbInstances[name] = new SQLiteDB(name);
         }
 
         return this.dbInstances[name];
