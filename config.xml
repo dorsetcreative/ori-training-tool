@@ -169,11 +169,6 @@
             </feature>
         </config-file>
         <config-file parent="/*" target="res/xml/config.xml">
-            <feature name="CDVOrientation">
-                <param name="android-package" value="cordova.plugins.screenorientation.CDVOrientation" />
-            </feature>
-        </config-file>
-        <config-file parent="/*" target="res/xml/config.xml">
             <feature name="SplashScreen">
                 <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
                 <param name="onload" value="true" />
