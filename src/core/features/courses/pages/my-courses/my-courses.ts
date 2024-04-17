@@ -85,7 +85,9 @@ export class CoreCoursesMyCoursesPage implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.searchEnabled = !CoreCourses.isSearchCoursesDisabledInSite();
         this.downloadAllCoursesEnabled = !CoreCourses.isDownloadCoursesDisabledInSite();
+    }
 
+    ionViewWillEnter(): void {
         this.fetchCourses().finally(() => {
             this.coursesLoaded = true;
         });

@@ -4627,11 +4627,6 @@ cordova-plugin-network-information@2.0.2:
   version "1.0.0"
   resolved "git+https://github.com/moodlemobile/cordova-plugin-prevent-override.git#49507eda3c929e488e58b8402cfc7e1521ebc400"
 
-cordova-plugin-screen-orientation@3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-screen-orientation/-/cordova-plugin-screen-orientation-3.0.2.tgz#81290a933cfe84d35482cfcb251c931cc7b71931"
-  integrity sha512-2w6CMC+HGvbhogJetalwGurL2Fx8DQCCPy3wlSZHN1/W7WoQ5n9ujVozcoKrY4VaagK6bxrPFih+ElkO8Uqfzg==
-
 cordova-plugin-splashscreen@6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/cordova-plugin-splashscreen/-/cordova-plugin-splashscreen-6.0.0.tgz#674718f87894cd75615da2b55905eb4cc719cf01"

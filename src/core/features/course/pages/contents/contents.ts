@@ -122,12 +122,6 @@ export class CoreCourseContentsPage implements OnInit, OnDestroy {
         }, 30000);
 
         this.initListeners();
-
-        await this.loadData(false, true);
-
-        this.dataLoaded = true;
-
-        this.initPrefetch();
     }
 
     /**
@@ -518,7 +512,10 @@ export class CoreCourseContentsPage implements OnInit, OnDestroy {
     /**
      * User entered the page.
      */
-    ionViewDidEnter(): void {
+    async ionViewDidEnter(): Promise<void> {
+        await this.loadData(false, true);
+        this.dataLoaded = true;
+        this.initPrefetch();
         this.formatComponent?.ionViewDidEnter();
     }
 
