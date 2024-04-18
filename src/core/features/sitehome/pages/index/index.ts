@@ -92,7 +92,7 @@ export class CoreSiteHomeIndexPage implements OnInit, OnDestroy {
         this.downloadAllCoursesEnabled = !CoreCourses.isDownloadCoursesDisabledInSite();
     }
 
-    ionViewWillEnter(): void {
+    ionViewDidEnter(): void {
         this.fetchCourses().finally(() => {
             this.coursesLoaded = true;
         });
