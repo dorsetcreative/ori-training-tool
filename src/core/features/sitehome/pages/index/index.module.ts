@@ -20,6 +20,7 @@ import { CoreBlockComponentsModule } from '@/core/features/block/components/comp
 import { CoreCourseComponentsModule } from '@features/course/components/components.module';
 
 import { CoreSiteHomeIndexPage } from '.';
+import {CoreCoursesComponentsModule} from "@features/courses/components/components.module";
 
 const routes: Routes = [
     {
@@ -34,6 +35,7 @@ const routes: Routes = [
         CoreSharedModule,
         CoreBlockComponentsModule,
         CoreCourseComponentsModule,
+        CoreCoursesComponentsModule,
     ],
     declarations: [
         CoreSiteHomeIndexPage,
