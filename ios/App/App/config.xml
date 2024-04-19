@@ -2,6 +2,10 @@
 <widget version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <access origin="*" />
   
+  <feature name="Zip">
+    <param name="ios-package" value="ZipPlugin"/>
+  </feature>
+
   <feature name="Clipboard">
     <param name="ios-package" value="CDVClipboard"/>
   </feature>
@@ -55,16 +59,8 @@
     <param name="ios-package" value="CDVConnection"/>
   </feature>
 
-  <feature name="CDVOrientation">
-    <param name="ios-package" value="CDVOrientation"/>
-  </feature>
-
   <feature name="WKWebViewCookies">
     <param name="ios-package" value="CDVWKWebViewCookies"/>
-  </feature>
-
-  <feature name="Zip">
-    <param name="ios-package" value="ZipPlugin"/>
   </feature>
 
   <feature name="SQLitePlugin">
