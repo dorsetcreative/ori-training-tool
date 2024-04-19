@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { IonRefresher } from '@ionic/angular';
+import {IonRefresher, IonSearchbar} from '@ionic/angular';
 import { Params } from '@angular/router';
 
 import { CoreSite, CoreSiteConfig } from '@classes/site';
@@ -28,6 +28,10 @@ import { CoreBlockCourseBlocksComponent } from '@features/block/components/cours
 import { CoreCourseModuleDelegate, CoreCourseModuleHandlerData } from '@features/course/services/module-delegate';
 import { CoreCourseModulePrefetchDelegate } from '@features/course/services/module-prefetch-delegate';
 import { CoreNavigator } from '@services/navigator';
+import {CoreCoursesHelper, CoreEnrolledCourseDataWithExtraInfoAndOptions} from "@features/courses/services/courses-helper";
+import {CoreConstants} from "@/core/constants";
+import {CoreCourseOptionsDelegate} from "@features/course/services/course-options-delegate";
+import {Translate} from "@singletons";
 
 /**
  * Page that displays site home index.
@@ -38,180 +42,171 @@ import { CoreNavigator } from '@services/navigator';
 })
 export class CoreSiteHomeIndexPage implements OnInit, OnDestroy {
 
-    @ViewChild(CoreBlockCourseBlocksComponent) courseBlocksComponent?: CoreBlockCourseBlocksComponent;
+    @ViewChild(IonSearchbar) searchbar!: IonSearchbar;
 
-    dataLoaded = false;
-    section?: CoreCourseWSSection & {
-        hasContent?: boolean;
-    };
-
-    hasContent = false;
-    items: string[] = [];
-    siteHomeId = 1;
-    currentSite?: CoreSite;
+    courses: CoreEnrolledCourseDataWithExtraInfoAndOptions[] = [];
+    filteredCourses: CoreEnrolledCourseDataWithExtraInfoAndOptions[] = [];
     searchEnabled = false;
-    downloadEnabled = false;
-    downloadCourseEnabled = false;
-    downloadCoursesEnabled = false;
-    downloadEnabledIcon = 'far-square';
-    newsForumModule?: NewsForum;
+    filter = '';
+    showFilter = false;
+    coursesLoaded = false;
+    downloadAllCoursesIcon = CoreConstants.ICON_NOT_DOWNLOADED;
+    downloadAllCoursesLoading = false;
+    downloadAllCoursesBadge = '';
+    downloadAllCoursesEnabled = false;
+    downloadAllCoursesCount?: number;
+    downloadAllCoursesTotal?: number;
+    downloadAllCoursesBadgeA11yText = '';
 
-    protected updateSiteObserver?: CoreEventObserver;
+    protected myCoursesObserver: CoreEventObserver;
+    protected siteUpdatedObserver: CoreEventObserver;
+    protected isDestroyed = false;
+    protected courseIds = '';
+
+    constructor() {
+        // Update list if user enrols in a course.
+        this.myCoursesObserver = CoreEvents.on(
+            CoreCoursesProvider.EVENT_MY_COURSES_UPDATED,
+            (data) => {
+
+                if (data.action == CoreCoursesProvider.ACTION_ENROL) {
+                    this.fetchCourses();
+                }
+            },
+
+            CoreSites.getCurrentSiteId(),
+        );
+
+        // Refresh the enabled flags if site is updated.
+        this.siteUpdatedObserver = CoreEvents.on(CoreEvents.SITE_UPDATED, () => {
+            this.searchEnabled = !CoreCourses.isSearchCoursesDisabledInSite();
+            this.downloadAllCoursesEnabled = !CoreCourses.isDownloadCoursesDisabledInSite();
+        }, CoreSites.getCurrentSiteId());
+    }
 
     /**
-     * Page being initialized.
+     * Component being initialized.
      */
     ngOnInit(): void {
         this.searchEnabled = !CoreCourses.isSearchCoursesDisabledInSite();
-        this.downloadCourseEnabled = !CoreCourses.isDownloadCourseDisabledInSite();
-        this.downloadCoursesEnabled = !CoreCourses.isDownloadCoursesDisabledInSite();
+        this.downloadAllCoursesEnabled = !CoreCourses.isDownloadCoursesDisabledInSite();
+    }
 
-        // Refresh the enabled flags if site is updated.
-        this.updateSiteObserver = CoreEvents.on(CoreEvents.SITE_UPDATED, () => {
-            this.searchEnabled = !CoreCourses.isSearchCoursesDisabledInSite();
-            this.downloadCourseEnabled = !CoreCourses.isDownloadCourseDisabledInSite();
-            this.downloadCoursesEnabled = !CoreCourses.isDownloadCoursesDisabledInSite();
-
-            this.switchDownload(this.downloadEnabled && this.downloadCourseEnabled && this.downloadCoursesEnabled);
-        }, CoreSites.getCurrentSiteId());
-
-        this.currentSite = CoreSites.getCurrentSite()!;
-        this.siteHomeId = CoreSites.getCurrentSiteHomeId();
-
-        const module = CoreNavigator.getRouteParam<CoreCourseModule>('module');
-        if (module) {
-            const modParams = CoreNavigator.getRouteParam<Params>('modParams');
-            CoreCourseHelper.openModule(module, this.siteHomeId, undefined, modParams);
-        }
-
-        this.loadContent().finally(() => {
-            this.dataLoaded = true;
+    ionViewDidEnter(): void {
+        this.fetchCourses().finally(() => {
+            this.coursesLoaded = true;
         });
     }
 
     /**
-     * Convenience function to fetch the data.
+     * Fetch the user courses.
      *
      * @return Promise resolved when done.
      */
-    protected async loadContent(): Promise<void> {
-        this.hasContent = false;
-
-        const config = this.currentSite!.getStoredConfig() || { numsections: 1, frontpageloggedin: undefined };
-
-        this.items = await CoreSiteHome.getFrontPageItems(config.frontpageloggedin);
-        this.hasContent = this.items.length > 0;
-
-        if (this.items.some((item) => item == 'NEWS_ITEMS')) {
-            // Get the news forum.
-            try {
-                const forum = await CoreSiteHome.getNewsForum();
-                this.newsForumModule = await CoreCourse.getModuleBasicInfo(forum.cmid);
-                this.newsForumModule.handlerData = CoreCourseModuleDelegate.getModuleDataFor(
-                    this.newsForumModule.modname,
-                    this.newsForumModule,
-                    this.siteHomeId,
-                    this.newsForumModule.section,
-                    true,
-                );
-            } catch {
-                // Ignore errors.
-            }
-        }
-
+    protected async fetchCourses(): Promise<void> {
         try {
-            const sections = await CoreCourse.getSections(this.siteHomeId!, false, true);
+            const courses: CoreEnrolledCourseDataWithExtraInfoAndOptions[] = await CoreCourses.getUserCourses();
+            const courseIds = courses.map((course) => course.id);
 
-            // Check "Include a topic section" setting from numsections.
-            this.section = config.numsections ? sections.find((section) => section.section == 1) : undefined;
-            if (this.section) {
-                const result = CoreCourseHelper.addHandlerDataForModules(
-                    [this.section],
-                    this.siteHomeId,
-                    undefined,
-                    undefined,
-                    true,
-                );
-                this.hasContent = result.hasContent || this.hasContent;
+            this.courseIds = courseIds.join(',');
+
+            await CoreCoursesHelper.loadCoursesExtraInfo(courses);
+
+            if (CoreCourses.canGetAdminAndNavOptions()) {
+                const options = await CoreCourses.getCoursesAdminAndNavOptions(courseIds);
+                courses.forEach((course) => {
+                    course.navOptions = options.navOptions[course.id];
+                    course.admOptions = options.admOptions[course.id];
+                });
             }
 
-            // Add log in Moodle.
-            CoreCourse.logView(
-                this.siteHomeId!,
-                undefined,
-                undefined,
-                this.currentSite!.getInfo()?.sitename,
-            ).catch(() => {
-                // Ignore errors.
-            });
+            this.courses = courses;
+            this.filteredCourses = this.courses;
+            this.filter = '';
         } catch (error) {
-            CoreDomUtils.showErrorModalDefault(error, 'core.course.couldnotloadsectioncontent', true);
+            CoreDomUtils.showErrorModalDefault(error, 'core.courses.errorloadcourses', true);
         }
     }
 
     /**
-     * Refresh the data.
+     * Refresh the courses.
      *
      * @param refresher Refresher.
      */
-    doRefresh(refresher?: IonRefresher): void {
-        const promises: Promise<unknown>[] = [];
+    refreshCourses(refresher: IonRefresher): void {
+        const promises: Promise<void>[] = [];
 
-        promises.push(CoreCourse.invalidateSections(this.siteHomeId!));
-        promises.push(this.currentSite!.invalidateConfig().then(async () => {
-            // Config invalidated, fetch it again.
-            const config: CoreSiteConfig = await this.currentSite!.getConfig();
-            this.currentSite!.setConfig(config);
-
-            return;
-        }));
-
-        if (this.section && this.section.modules) {
-            // Invalidate modules prefetch data.
-            promises.push(CoreCourseModulePrefetchDelegate.invalidateModules(this.section.modules, this.siteHomeId));
+        promises.push(CoreCourses.invalidateUserCourses());
+        promises.push(CoreCourseOptionsDelegate.clearAndInvalidateCoursesOptions());
+        if (this.courseIds) {
+            promises.push(CoreCourses.invalidateCoursesByField('ids', this.courseIds));
         }
 
-        if (this.courseBlocksComponent) {
-            promises.push(this.courseBlocksComponent.invalidateBlocks());
-        }
-
-        Promise.all(promises).finally(async () => {
-            const p2: Promise<unknown>[] = [];
-
-            p2.push(this.loadContent());
-            if (this.courseBlocksComponent) {
-                p2.push(this.courseBlocksComponent.loadContent());
-            }
-
-            await Promise.all(p2).finally(() => {
+        Promise.all(promises).finally(() => {
+            this.fetchCourses().finally(() => {
                 refresher?.complete();
             });
         });
     }
 
     /**
-     * Toggle download enabled.
+     * Show or hide the filter.
      */
-    toggleDownload(): void {
-        this.switchDownload(!this.downloadEnabled);
+    switchFilter(): void {
+        this.filter = '';
+        this.showFilter = !this.showFilter;
+        this.filteredCourses = this.courses;
+        if (this.showFilter) {
+            setTimeout(() => {
+                this.searchbar.setFocus();
+            }, 500);
+        }
     }
 
     /**
-     * Convenience function to switch download enabled.
+     * The filter has changed.
      *
-     * @param enable If enable or disable.
+     * @param Received Event.
      */
-    protected switchDownload(enable: boolean): void {
-        this.downloadEnabled = (this.downloadCourseEnabled || this.downloadCoursesEnabled) && enable;
-        this.downloadEnabledIcon = this.downloadEnabled ? 'far-check-square' : 'far-square';
-        CoreEvents.trigger(CoreCoursesProvider.EVENT_DASHBOARD_DOWNLOAD_ENABLED_CHANGED, { enabled: this.downloadEnabled });
+    filterChanged(event?: Event): void {
+        const target = <HTMLInputElement>event?.target || null;
+        const newValue = target ? String(target.value).trim().toLowerCase() : null;
+        if (!newValue || !this.courses) {
+            this.filteredCourses = this.courses;
+        } else {
+            // Use displayname if available, or fullname if not.
+            if (this.courses.length > 0 && typeof this.courses[0].displayname != 'undefined') {
+                this.filteredCourses = this.courses.filter((course) => course.displayname!.toLowerCase().indexOf(newValue) > -1);
+            } else {
+                this.filteredCourses = this.courses.filter((course) => course.fullname.toLowerCase().indexOf(newValue) > -1);
+            }
+        }
     }
 
     /**
-     * Open page to manage courses storage.
+     * Prefetch all the courses.
+     *
+     * @return Promise resolved when done.
      */
-    manageCoursesStorage(): void {
-        CoreNavigator.navigateToSitePath('/storage');
+    async prefetchCourses(): Promise<void> {
+        this.downloadAllCoursesLoading = true;
+
+        try {
+            await CoreCourseHelper.confirmAndPrefetchCourses(this.courses, (progress) => {
+                this.downloadAllCoursesBadge = progress.count + ' / ' + progress.total;
+                this.downloadAllCoursesBadgeA11yText =
+                    Translate.instant('core.course.downloadcoursesprogressdescription', progress);
+                this.downloadAllCoursesCount = progress.count;
+                this.downloadAllCoursesTotal = progress.total;
+            });
+        } catch (error) {
+            if (!this.isDestroyed) {
+                CoreDomUtils.showErrorModalDefault(error, 'core.course.errordownloadingcourse', true);
+            }
+        }
+
+        this.downloadAllCoursesBadge = '';
+        this.downloadAllCoursesLoading = false;
     }
 
     /**
@@ -222,35 +217,12 @@ export class CoreSiteHomeIndexPage implements OnInit, OnDestroy {
     }
 
     /**
-     * Go to available courses.
-     */
-    openAvailableCourses(): void {
-        CoreNavigator.navigateToSitePath('courses/all');
-    }
-
-    /**
-     * Go to my courses.
-     */
-    openMyCourses(): void {
-        CoreNavigator.navigateToSitePath('courses/my');
-    }
-
-    /**
-     * Go to course categories.
-     */
-    openCourseCategories(): void {
-        CoreNavigator.navigateToSitePath('courses/categories');
-    }
-
-    /**
-     * Component being destroyed.
+     * Page destroyed.
      */
     ngOnDestroy(): void {
-        this.updateSiteObserver?.off();
+        this.isDestroyed = true;
+        this.myCoursesObserver?.off();
+        this.siteUpdatedObserver?.off();
     }
 
 }
-
-type NewsForum = CoreCourseModuleBasicInfo & {
-    handlerData?: CoreCourseModuleHandlerData;
-};
