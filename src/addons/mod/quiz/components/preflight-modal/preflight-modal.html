@@ -16,7 +16,7 @@
                 <!-- Access rules. -->
                 <ng-container *ngFor="let data of accessRulesData; let last = last">
                     <core-dynamic-component [component]="data.component" [data]="data.data">
-                        <p class="ion-padding">Couldn't find the directive to render this access rule.</p>
+                        <p class="ion-padding">{{'addon.mod_quiz.couldntfindthedirective' | translate}}</p>
                     </core-dynamic-component>
                     <core-spacer *ngIf="!last"></core-spacer>
                 </ng-container>

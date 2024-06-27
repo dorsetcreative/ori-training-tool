@@ -12,15 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Component } from '@angular/core';
-import {CoreConfig} from "@services/config";
-import {CoreConstants} from "@/core/constants";
+import { Component, ViewEncapsulation } from '@angular/core';
+import { CoreConfig } from "@services/config";
+import { CoreConstants } from "@/core/constants";
+import { CoreLang } from '@services/lang';
 
 
 @Component({
   selector: 'app-term',
   templateUrl: './term.page.html',
   styleUrls: ['./term.page.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TermPage {
 

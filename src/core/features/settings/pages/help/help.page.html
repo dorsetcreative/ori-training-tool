@@ -5,59 +5,56 @@
         </ion-buttons>
         <ion-title aria-hidden="true">
             <img *ngIf="colorScheme" src="/assets/img/ori-logo-header-{{colorScheme == 'light' ? colorScheme : 'dark'}}.svg" role="presentation">
-
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="he-page">
-
-
-    <h1 aria-label="Help slash F A Q's">Help/FAQs</h1>
+    <h1 [attr.aria-label]="'core.help/faqs' | translate">{{'core.help/faqs' | translate}}</h1>
     <div class="faq-container">
-        <p class="question">
-            I have forgotten my username or password.
+        <p class="question" [attr.aria-label]="'core.settings.help.forgottenusernamepasswordquestion' | translate">
+            {{'core.settings.help.forgottenusernamepasswordquestion' | translate}}
         </p>
-        <p class="answer">
-            If you have forgotten your username or password, please select ‘Forgotten your username or password’ on the
-            home screen where you will be given instructions on how to reset your account details.
+        <p class="answer" [attr.aria-label]="'core.settings.help.forgottenusernamepasswordanswer' | translate">
+            {{'core.settings.help.forgottenusernamepasswordanswer' | translate}}
         </p>
     </div>
     <div class="faq-container">
-        <p class="question">
-            How do I gain access to a course?
+        <p class="question" [attr.aria-label]="'core.settings.help.gainaccessquestion' | translate">
+            {{'core.settings.help.gainaccessquestion' | translate}}
         </p>
-        <p class="answer">
-            Locate or search for the desired course (you can click 'All courses...' in the 'My courses' block) and click
-            on the course name. Click Enroll me in this course. Once you are enrolled in a course, it will appear under
-            "My courses" any time that you are logged into the ORI education site.
+        <p class="answer" [attr.aria-label]="'core.settings.help.gainaccessanswer' | translate">
+            {{'core.settings.help.gainaccessanswer' | translate}}
         </p>
     </div>
     <div class="faq-container">
-        <p class="question">
-            How do I get back to the home page?
+        <p class="question" [attr.aria-label]="'core.settings.help.backtohomepagequestion' | translate">
+            {{'core.settings.help.backtohomepagequestion' | translate}}
         </p>
-        <p class="answer">
-            Use the navigation bar at the top left of the page or the button at the very bottom of the course.
+        <p class="answer" [attr.aria-label]="'core.settings.help.backtohomepageanswer' | translate">
+            {{'core.settings.help.backtohomepageanswer' | translate}}
         </p>
     </div>
     <div class="faq-container">
-        <p class="question">
-            How do I jump between my courses?
+        <p class="question" [attr.aria-label]="'core.settings.help.jumpbetweencoursesquestion' | translate">
+            {{'core.settings.help.jumpbetweencoursesquestion' | translate}}
         </p>
         <ol class="answer">
-            <li>'My Courses' block if it has been added to the page you are on</li>
-            <li>Go back to the homepage and then use the main course block (if it has been added!)</li>
+            <li [attr.aria-label]="'core.settings.help.jumpbetweencoursesanswer1' | translate">
+                {{'core.settings.help.jumpbetweencoursesanswer1' | translate}}
+            </li>
+            <li [attr.aria-label]="'core.settings.help.jumpbetweencoursesanswer2' | translate">
+                {{'core.settings.help.jumpbetweencoursesanswer2' | translate}}
+            </li>
         </ol>
     </div>
     <div class="faq-container">
-        <p class="question">
-            If I need help, who do I contact?
+        <p class="question" [attr.aria-label]="'core.settings.help.contactquestion' | translate">
+            {{'core.settings.help.contactquestion' | translate}}
         </p>
         <p class="answer">
-            <span aria-labelledby="instruction1 email1" role="text"  id="instruction1">
-                Please contact the team at the Orthopaedic Research Institute,
-                Bournemouth University, if you need any help using the ORI education system
+            <span aria-labelledby="instruction1 email1" role="text" id="instruction1" [attr.aria-label]="'core.settings.help.contactanswer' | translate">
+                {{'core.settings.help.contactanswer' | translate}}
             </span>
             <span aria-hidden="true">(</span>
             <a id="email1" tabindex=0 aria-label="ori@bournemouth.ac.uk" href="mailto:ori@bournemouth.ac.uk">ori@bournemouth.ac.uk</a>
@@ -65,13 +62,12 @@
         </p>
     </div>
     <div class="faq-container">
-        <p class="question">
-            How do I report a technical issue?
+        <p class="question" [attr.aria-label]="'core.settings.help.reporttechnicalissuequestion' | translate">
+            {{'core.settings.help.reporttechnicalissuequestion' | translate}}
         </p>
         <p class="answer">
-            <span aria-labelledby="instruction2 email2" role="text"  id="instruction2">
-                Please contact the team at the Orthopaedic Research Institute, Bournemouth University,
-                if you need to report a technical fault with the ORI education system
+            <span aria-labelledby="instruction2 email2" role="text" id="instruction2" [attr.aria-label]="'core.settings.help.reporttechnicalissueanswer' | translate">
+                {{'core.settings.help.reporttechnicalissueanswer' | translate}}
             </span>
             <span aria-hidden="true">(</span>
             <a id="email2" tabindex=0 aria-label="ori@bournemouth.ac.uk" href="mailto:ori@bournemouth.ac.uk">ori@bournemouth.ac.uk</a>
