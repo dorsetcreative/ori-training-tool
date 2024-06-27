@@ -32,7 +32,7 @@
     "test:watch": "NODE_ENV=testing gulp watch & jest --watch",
     "test:coverage": "NODE_ENV=testing gulp && jest --coverage",
     "lint": "NODE_OPTIONS=--max-old-space-size=4096 ng lint",
-    "postinstall": "npx jetify",
+    "postinstall": "npx jetify && node script-fixes/fix-android-build.js",
     "resources": "cordova-res ios && cordova-res android && node scripts/resources.js",
     "run:android-lr": "ionic capacitor run android --livereload --external --host 0.0.0.0 --open",
     "run:android": "ionic build && npx cap sync android && node script-fixes/fix-android-build.js && npx cap open android",
