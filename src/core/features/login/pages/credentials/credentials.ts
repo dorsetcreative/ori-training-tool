@@ -336,7 +336,7 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
      * Open settings page.
      */
     openSettings(): void {
-        CoreNavigator.navigate('/settings');
+        CoreNavigator.navigate('/settings/general');
     }
 
     /**
