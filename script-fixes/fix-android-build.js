@@ -30,6 +30,14 @@ function fixCapacitorCordovaPluginsManifest() {
             `<service android:name="com.adobe.phonegap.push.PushInstanceIDListenerService">`,
             `<service android:name="com.adobe.phonegap.push.PushInstanceIDListenerService" android:exported="true">`,
         );
+        result = result.replace(
+            `<service android:name="com.adobe.phonegap.push.FCMService">`,
+            `<service android:name="com.adobe.phonegap.push.FCMService" android:exported="true">`,
+        );
+        result = result.replace(
+            `<service android:name="com.adobe.phonegap.push.PushInstanceIDListenerService">`,
+            `<service android:name="com.adobe.phonegap.push.PushInstanceIDListenerService" android:exported="true">`,
+        );
 
 
         fs.writeFile(manifestFile, result, "utf8", onError);
