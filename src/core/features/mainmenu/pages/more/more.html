@@ -80,12 +80,12 @@
                 </div>
             </div>
             <div class="he-table-group">
-                <div class="he-table-row" (click)="logout()" aria-label="Sign out" role="button">
+                <div class="he-table-row" (click)="logout()" [attr.aria-label]="'core.mainmenu.more.signout' | translate" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/signout-icon-light.svg" width="30" aria-hidden="true"/>
                     </div>
                     <div class="he-table-title">
-                        <p aria-hidden="true">{{'Sign out' | translate}}</p></div>
+                        <p aria-hidden="true">{{'core.mainmenu.more.signout' | translate}}</p></div>
                     <div class="he-table-accessory" aria-hidden="true">
                         <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
