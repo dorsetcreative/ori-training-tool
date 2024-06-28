@@ -14,27 +14,27 @@
 <ion-content class="he-page">
 
     <core-loading [hideUntil]="!loggedOut">
-        <h1>MORE</h1>
+        <h1>{{'core.MORE' | translate}}</h1>
         <div class="he-table">
             <div class="he-table-group">
 
-                <div class="he-table-row" core-user-link [userId]="siteInfo.userid" aria-label="Profile" role="button">
+                <div class="he-table-row" core-user-link [userId]="siteInfo.userid" [attr.aria-label]="'core.mainmenu.more.profile' | translate" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/profile-icon-light.svg" height="32" aria-hidden="true"/>
                     </div>
                     <div class="he-table-title" aria-hidden="true">
-                        <p aria-hidden="true">Profile</p>
+                        <p aria-hidden="true">{{'core.mainmenu.more.profile' | translate}}</p>
                     </div>
                     <div class="he-table-accessory" aria-hidden="true">
                         <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
                 </div>
-                <div class="he-table-row" (click)="openSettings()" aria-label="Settings"  role="button">
+                <div class="he-table-row" (click)="openSettings()" [attr.aria-label]="'core.settings.settings' | translate"  role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/accessibility-icon-light.svg" width="28"/>
                     </div>
                     <div class="he-table-title" aria-hidden="true">
-                        <p aria-hidden="true">Settings</p>
+                        <p aria-hidden="true">{{'core.settings.settings' | translate}}</p>
                     </div>
                     <div class="he-table-accessory" aria-hidden="true">
                         <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
@@ -44,35 +44,35 @@
 
                 <!-- [href]="siteInfo.siteurl" -->
                 <div class="he-table-row" href="https://microsites.bournemouth.ac.uk/ori/" core-link autoLogin="yes"
-                     aria-label="website" role="button">
+                     [attr.aria-label]="'core.mainmenu.more.oribuwebsite' |translate" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/thr-icon-light.svg" width="27" aria-hidden="true"/>
                     </div>
                     <div class="he-table-title" aria-hidden="true">
-                        <p aria-hidden="true">ORI BU Website</p>
+                        <p aria-hidden="true">{{'core.mainmenu.more.oribuwebsite' |translate}}</p>
                     </div>
                     <div class="he-table-accessory" aria-hidden="true">
                         <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
                 </div>
 
-                <div class="he-table-row" (click)="openTerm()" aria-label="Terms and conditions" role="button">
+                <div class="he-table-row" (click)="openTerm()" [attr.aria-label]="'core.mainmenu.more.termsandconditions' | translate" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/terms-icon-light.svg" width="27" aria-hidden="true"/>
                     </div>
                     <div class="he-table-title" aria-hidden="true">
-                        <p aria-hidden="true">Terms and conditions</p>
+                        <p aria-hidden="true">{{'core.mainmenu.more.termsandconditions' | translate}}</p>
                     </div>
                     <div class="he-table-accessory" aria-hidden="true">
                         <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>
                 </div>
-                <div class="he-table-row" (click)="openHelp()" aria-label="Help slash F A Q's" role="button">
+                <div class="he-table-row" (click)="openHelp()" [attr.aria-label]="'core.help/faqs' | translate" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/help-icon-light.svg" width="30" aria-hidden="true"/>
                     </div>
                     <div class="he-table-title" aria-hidden="true">
-                        <p aria-hidden="true">Help/FAQs</p>
+                        <p aria-hidden="true">{{'core.help/faqs' | translate}}</p>
                     </div>
                     <div class="he-table-accessory" aria-hidden="true">
                         <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
@@ -80,12 +80,12 @@
                 </div>
             </div>
             <div class="he-table-group">
-                <div class="he-table-row" (click)="logout()" aria-label="Sign out" role="button">
+                <div class="he-table-row" (click)="logout()" [attr.aria-label]="'core.mainmenu.more.signout' | translate" role="button">
                     <div class="he-table-icon" aria-hidden="true">
                         <img src="/assets/more/signout-icon-light.svg" width="30" aria-hidden="true"/>
                     </div>
                     <div class="he-table-title">
-                        <p aria-hidden="true">Sign out</p></div>
+                        <p aria-hidden="true">{{'core.mainmenu.more.signout' | translate}}</p></div>
                     <div class="he-table-accessory" aria-hidden="true">
                         <img src="/assets/more/arrow-icon-light.svg" width="11" aria-hidden="true"/>
                     </div>

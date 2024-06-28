@@ -155,7 +155,7 @@
     "@typescript-eslint/eslint-plugin": "4.22.0",
     "@typescript-eslint/parser": "4.22.0",
     "check-es-compat": "1.1.1",
-    "cordova-plugin-file-transfer": "https://github.com/apache/cordova-plugin-file-transfer.git",
+    "cordova-plugin-file-transfer": "github:moodlemobile/cordova-plugin-file-transfer",
     "cordova-plugin-inappbrowser": "github:moodlemobile/cordova-plugin-inappbrowser#moodle-ionic5",
     "cordova-plugin-local-notification": "github:moodlemobile/cordova-plugin-local-notification#moodle",
     "cordova-plugin-prevent-override": "git+https://github.com/moodlemobile/cordova-plugin-prevent-override.git",

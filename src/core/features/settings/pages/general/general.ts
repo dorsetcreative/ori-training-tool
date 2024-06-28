@@ -72,13 +72,14 @@ export class CoreSettingsGeneralPage {
         // Configure color schemes.
         if (!CoreConstants.CONFIG.forceColorScheme) {
             this.colorSchemeDisabled = CoreSettingsHelper.isColorSchemeDisabledInSite();
-
             if (this.colorSchemeDisabled) {
                 this.colorSchemes.push(CoreColorScheme.LIGHT);
+                console.log('push', this.colorSchemes);
                 this.selectedScheme = this.colorSchemes[0];
             } else {
                 this.isAndroid = CoreApp.isAndroid();
                 this.colorSchemes = CoreSettingsHelper.getAllowedColorSchemes();
+                console.log('getAllowedColorSchemes', this.colorSchemes);
                 this.selectedScheme = await CoreConfig.get(CoreConstants.SETTINGS_COLOR_SCHEME, CoreColorScheme.LIGHT);
             }
         }
