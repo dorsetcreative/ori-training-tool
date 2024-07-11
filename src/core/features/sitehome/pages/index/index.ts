@@ -32,6 +32,7 @@ import {CoreCoursesHelper, CoreEnrolledCourseDataWithExtraInfoAndOptions} from "
 import {CoreConstants} from "@/core/constants";
 import {CoreCourseOptionsDelegate} from "@features/course/services/course-options-delegate";
 import {Translate} from "@singletons";
+import { CustomRoutingService } from '@services/custom-routing';
 
 /**
  * Page that displays site home index.
@@ -63,7 +64,9 @@ export class CoreSiteHomeIndexPage implements OnInit, OnDestroy {
     protected isDestroyed = false;
     protected courseIds = '';
 
-    constructor() {
+    constructor(
+        private customRoutingService: CustomRoutingService,
+    ) {
         // Update list if user enrols in a course.
         this.myCoursesObserver = CoreEvents.on(
             CoreCoursesProvider.EVENT_MY_COURSES_UPDATED,
@@ -90,6 +93,12 @@ export class CoreSiteHomeIndexPage implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.searchEnabled = !CoreCourses.isSearchCoursesDisabledInSite();
         this.downloadAllCoursesEnabled = !CoreCourses.isDownloadCoursesDisabledInSite();
+        this.customRoutingService.customRouteChange$.subscribe(()=> {
+            this.fetchCourses().finally(() => {
+                this.coursesLoaded = true;
+            });
+        })
+
     }
 
     ionViewDidEnter(): void {
