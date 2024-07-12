@@ -20,6 +20,7 @@ import { makeSingleton } from '@singletons';
 import { CoreStatusWithWarningsWSResponse, CoreWarningsWSResponse, CoreWSExternalFile, CoreWSExternalWarning } from '@services/ws';
 import { CoreEvents } from '@singletons/events';
 import { CoreWSError } from '@classes/errors/wserror';
+import { CoreLang } from '@services/lang';
 
 const ROOT_CACHE_KEY = 'mmCourses:';
 
@@ -816,8 +817,10 @@ export class CoreCoursesProvider {
         const site = await CoreSites.getSite(siteId);
 
         const userId = site.getUserId();
+        const lang = await CoreLang.getCurrentLanguage();
         const wsParams: CoreEnrolGetUsersCoursesWSParams = {
             userid: userId,
+            language: lang,
         };
         const strategyPreSets = strategy
             ? CoreSites.getReadingStrategyPreSets(strategy)
@@ -834,7 +837,7 @@ export class CoreCoursesProvider {
             wsParams.returnusercount = false;
         }
 
-        const courses = await site.read<CoreEnrolGetUsersCoursesWSResponse>('core_enrol_get_users_courses', wsParams, preSets);
+        const courses = await site.read<CoreEnrolGetUsersCoursesWSResponse>('core_enrol_get_users_courses_by_language', wsParams, preSets);
 
         if (this.userCoursesIds) {
             // Check if the list of courses has changed.
@@ -1212,6 +1215,7 @@ export type CoreCoursesDashboardDownloadEnabledChangedEventData = {
  */
 type CoreEnrolGetUsersCoursesWSParams = {
     userid: number; // User id.
+    language: string; // Current language.
     returnusercount?: boolean; // Include count of enrolled users for each course? This can add several seconds to the response
     // time if a user is on several large courses, so set this to false if the value will not be used to improve performance.
 };

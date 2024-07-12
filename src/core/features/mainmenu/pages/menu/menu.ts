@@ -27,6 +27,7 @@ import { Translate } from '@singletons';
 import { CoreUtils } from '@services/utils/utils';
 import { CoreAriaRoleTab, CoreAriaRoleTabFindable } from '@classes/aria-role-tab';
 import { CoreNavigator } from '@services/navigator';
+import { CustomRoutingService } from '@services/custom-routing';
 
 /**
  * Page that displays the main menu of the app.
@@ -61,6 +62,7 @@ export class CoreMainMenuPage implements OnInit, OnDestroy {
     constructor(
         protected route: ActivatedRoute,
         protected changeDetector: ChangeDetectorRef,
+        private customRoutingService: CustomRoutingService,
     ) {
         this.resizeFunction = this.initHandlers.bind(this);
         this.backButtonFunction = this.backButtonClicked.bind(this);
@@ -216,6 +218,9 @@ export class CoreMainMenuPage implements OnInit, OnDestroy {
         this.selectedTab = event.tab;
         this.firstSelectedTab = this.firstSelectedTab ?? event.tab;
         this.selectHistory.push(event.tab);
+        if (event.tab === 'home') {
+            this.customRoutingService.customRouteChange.next();
+        }
     }
 
     /**
