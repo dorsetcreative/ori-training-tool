@@ -8,6 +8,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        #if DEBUG
+        if #available(iOS 16.4, *) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                if let vc = self.window?.rootViewController as? CAPBridgeViewController {
+                    vc.bridge?.webView?.isInspectable = true;
+                }
+            }
+        }
+        #endif
         return true
     }
 
