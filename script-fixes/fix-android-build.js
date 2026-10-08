@@ -92,6 +92,32 @@ function fixDeprecatedBridgeMethod() {
 
 }
 
+// This hook replaces deprecated compile with implementation in plugin gradle files
+function fixDeprecatedCompile() {
+    const placesOfUsage = [
+        "node_modules/cordova-plugin-badge/src/android/badge.gradle",
+        "node_modules/cordova-plugin-local-notification/src/android/build/localnotification.gradle",
+    ];
+
+    placesOfUsage.forEach((src) => {
+        const sourceFile = path.join(rootdir, src);
+        if (!fs.existsSync(sourceFile)) {
+            return;
+        }
+
+        fs.readFile(sourceFile, "utf8", (err, data) => {
+            if (err) {
+                return console.log(err);
+            }
+            let result = data.toString();
+            result = result.replace(/compile\s+("me\.leolin:ShortcutBadger:[^"]+")/g, 'implementation $1');
+
+            fs.writeFile(sourceFile, result, "utf8", onError);
+            console.log(src.split('/')[src.split('/').length - 1], '-- FIXED')
+        });
+    });
+}
+
 // error callback
 function onError(err) {
     if (err) {
@@ -102,4 +128,5 @@ function onError(err) {
 // LAUNCH FIX FUNCTIONS
 fixCapacitorCordovaPluginsManifest();
 fixWhitelistUsage();
-fixDeprecatedBridgeMethod()
+fixDeprecatedBridgeMethod();
+fixDeprecatedCompile();

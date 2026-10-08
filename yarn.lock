@@ -4571,9 +4571,9 @@ cordova-plugin-file-opener2@3.0.5:
   resolved "https://registry.yarnpkg.com/cordova-plugin-file-opener2/-/cordova-plugin-file-opener2-3.0.5.tgz#3bf481a724bcec9cfa2257a71915309df5ea5b4d"
   integrity sha512-tjLHDamH5+y0bJZYVe2967L1S4R8tL4Y0rJUzJGoxsyiw3FUlrJNS199POOpzZZ6Xhlntn9a2o7+84r1dMN21A==
 
-"cordova-plugin-file-transfer@https://github.com/apache/cordova-plugin-file-transfer.git":
-  version "2.0.1-dev"
-  resolved "https://github.com/apache/cordova-plugin-file-transfer.git#f12b73eb0ba70536072eeab89843c96082fce512"
+"cordova-plugin-file-transfer@github:moodlemobile/cordova-plugin-file-transfer":
+  version "2.0.0-moodle.4"
+  resolved "https://codeload.github.com/moodlemobile/cordova-plugin-file-transfer/tar.gz/6bd9f2840590d221ddd0864c54506dbd4dc09783"
 
 cordova-plugin-file@6.0.2:
   version "6.0.2"
@@ -4673,17 +4673,17 @@ cordova-serve@^4.0.0:
     open "^7.0.3"
     which "^2.0.2"
 
-cordova-sqlite-storage-dependencies@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/cordova-sqlite-storage-dependencies/-/cordova-sqlite-storage-dependencies-4.0.0.tgz#2ffa2d1f2fb3bae868f489b6e174fb58d2926b8f"
-  integrity sha512-dTBxYaX/RGzH6+pp49o4sb3FuHCvhrssaKn1XMJ4LL3f9dnvz3rhFK2LdcWrdFkhOLOndnW/azUkbzZd+WWhRA==
+cordova-sqlite-storage-dependencies@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/cordova-sqlite-storage-dependencies/-/cordova-sqlite-storage-dependencies-5.0.0.tgz#f3053675aa0ebe133b7db3d61d4d0cfb82de2313"
+  integrity sha512-WjWm1QX+2JyLxjaNmYX2kNzmhrRk8q6n4GQ1PkUc79xR2bmJeO/m3koSuPemnWJdLdlsqDz8dCEHmgQSxhYjcg==
 
-cordova-sqlite-storage@6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/cordova-sqlite-storage/-/cordova-sqlite-storage-6.0.0.tgz#25eba8eb4657d2b526c4b753747e6d1533fcb73b"
-  integrity sha512-njRloA3AICaUFztKHXoFfVcwlL7zbvyFxtdZIkK7P+MA3umILXtSKhYAQkSe2GtHr0LBNzJI5xUUqAlZl/Js0A==
+cordova-sqlite-storage@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/cordova-sqlite-storage/-/cordova-sqlite-storage-7.0.0.tgz#299dcb8240a20f60bccee973fbea92584d7c1624"
+  integrity sha512-BV1KCNtHnFD37ZQmhztStKsaNxniGlLcUSiQ9wieWH2PpZ0gH/tuWeINrrXGKIt9teTukYRnxFyerQ/Lc9x41A==
   dependencies:
-    cordova-sqlite-storage-dependencies "4.0.0"
+    cordova-sqlite-storage-dependencies "5.0.0"
 
 cordova-support-google-services@1.3.2:
   version "1.3.2"
